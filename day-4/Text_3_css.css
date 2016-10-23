@@ -1,0 +1,9 @@
+body {
+      margin: auto;
+      width: 50%;
+}
+.section {
+          width: 320px;
+          padding: 0px 10px 0px 10px;
+          border-left: 5px solid;
+}

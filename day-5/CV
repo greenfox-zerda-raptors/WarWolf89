@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mr Bulldops CV</title>
+    <link rel="stylesheet" type="text/css" href="CV_css.css">
+</head>
+<body>
+    <div class="Side">
+      <img src="C:\Users\almasics\Desktop\cvpic.jpg">
+    </div>
+    <div class="Main">
+         <header>
+           <h1>dr.CsabaAlmasi</h1>
+            <ul>
+             <li>apt, 3/10; 13. Német street, Budapest HU-1084</li>
+             <li>36-30-908-1565</li>
+             <li>almasi.csaba89@gmail.com</li>
+            </ul>
+         </header>
+  <hr></hr>
+        <h2>LEGAL COUNSEL  – <strong>Vanin Management Consulting Ltd</strong></h1>
+          <ul>
+            <li>General legal counsel for the clients as well as the firm itself</li>
+            <li>Supervision of day-to-day legal operations, litigation, drafting contracts, emphasis on civil law contracts</li>
+            <li>monitoring the financial status of the firm and making necessary suggestions on income optimisation</li>
+            <li>Leading legal workshops for the general public (in the field of law)</li>
+            <li>Negotiating contracts and business deals on demand</li>
+          </ul>
+        <h2>PRIVATE ENGLISH TEACHER AND LEGAL TRANSLATOR – <strong>Self-employed</strong></h2>
+          <ul>
+            <li>Freelance legal translation, tutoring and teaching several students, primarily with the goal of them successfully passing language exams in English</li>
+          </ul>
+      <h2>HR INTERN – <strong>Robert Bosch Hungary Ltd.</strong></h2>
+          <ul>
+            <li>Supporting daily HR “project” operations</li>
+            <li>daily use of SAP HR</li>
+          </ul>
+      <h2>LEGAL TRAINEE AND LEGAL TRANSLATOR– <strong>dr. Magyar Mónika attorney</strong></h2>
+          <ul>
+            <li>Drafting documents</li>
+            <li>day-to-day legal translation of Hungarian documents</li>
+            <li>interpreting for clients</li>
+          </ul>
+  <hr></hr>
+     <h2>LAWYER – CUM LAUDE – <strong>Eötvös Loránd University – faculty of law, Budapest</strong></h2>
+          <ul>
+            <li>Bibó István college for advanced legal studies</li>
+            <li>Professor’s student assistant – Department of Civil Procedure</li>
+          </ul>
+     <h2>LAWYER - ERASMUS – <strong>Tilburg University - Netherlands</strong></h2>
+          <ul>
+            <li>Erasmus exchange program</li>
+          </ul>
+     <h2>PSICHOLOGY BA – <strong>Eötvös Loránd University – faculty of psychology, Budapest</strong></h2>
+          <ul>
+            <li>interest in social psychology</li>
+          </ul>
+     <hr></hr>
+     <h2></h2>
+          <ul>
+            <li>HUNGARIAN mother tongue</li>
+            <li>ENGLISH advanced native level</li>
+            <li>GERMAN basic</li>
+		          <li>JAPANESE basic</li>
+          </ul>
+          <ul>
+            <li>Kick-box</li>
+            <li>American Football</li>
+            <li>MTG</li>
+          </ul>
+    </div>
+</body>
+</html>
+<

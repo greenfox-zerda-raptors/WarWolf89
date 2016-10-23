@@ -1,0 +1,59 @@
+/**********************************************************************
+copy of original English CV
+room for improvement: diverse fonts, figuring out the class size and allocation
+*/
+
+body {
+
+}
+
+.Side {
+          height: 1500px;
+          position:absolute;
+          left:0; top:0; bottom: 0;
+          width: 178px;
+          background: rgba(0, 128, 128, 0.5);
+          display: inline;
+}
+
+.Side img {
+          position:absolute;
+          left:20%; top:10px; bottom: 0;
+          width: 120px;
+          height: 140px;
+}
+
+.Main {
+          padding-left: 30px;
+          position: absolute;
+          left:178px; top:0; bottom:0;
+          width: 30%;
+          text-align: justify;
+          display: inline;
+}
+
+hr {
+         border-style: inset;
+         border-width: 1px;
+         color: teal;
+}
+
+ul {
+          list-style: none;
+          margin-left: 0;
+          text-align: inherit;
+}
+
+ul li:before {
+          content: "+";
+          padding-right: 5px;
+}
+
+h2 {
+          font-size: 15;
+          font-family: Georgia;
+}
+
+.Main strong {
+          color: teal;
+}

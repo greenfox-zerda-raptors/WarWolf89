@@ -1,0 +1,22 @@
+body {
+      margin: auto;
+      width: 50%;
+}
+
+div {
+          width: 320px;
+          padding: 0px 10px 0px 10px;
+          border: 5px solid;
+}
+
+#open-top {
+          border-top: 0;
+}
+
+#open-bottom {
+          border-bottom: 0;
+}
+
+div:hover {
+      background-color: orange;
+}
