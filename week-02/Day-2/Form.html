@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Boxes</title>
+  <link rel="stylesheet" type="text/css" href="Form_css.css">
+</head>
+<body>
+  <form action="/my-handling-form-page" method="post">
+    <h1>Profile</h1>
+    <div class="container">
+      <div class="column-1">
+        <h2>Személyes adatok</h2>
+        <div>
+          <label for="name">Név:</label>
+          <br>
+          <input type="text" id="name" name="user_name" />
+        </div>
+        <div>
+          <label for="a1">Születési éved</label>
+          <br>
+          <input type="number" id="a1" name="user_date of birth" placeholder="pl. 1994" min="1900" max="1998"/>
+        </div>
+        <div class="spacing">
+          <label for="gender">Nemed:</label>
+          <br>
+          <input type="radio" name="gender" value="male" checked> Male
+          <input type="radio" name="gender" value="female"> Female
+          <br>
+          <label>Milyen márkákat szeretsz?</label>
+          <br>
+          <input type="checkbox" id="br1" name="brand" value="Adidas">
+          <label for =br1>Adidas</label>
+          <input type="checkbox" name="favorite2" value="vanilla" /> Apple
+          <br>
+          <input type="checkbox" name="favorite3" value="mint" /> Coca-Cola
+          <input type="checkbox" name="favorite1" value="chocolate" /> Mazda
+          <br>
+          <input type="checkbox" name="favorite2" value="vanilla" /> Nike
+          <input type="checkbox" name="favorite3" value="mint" /> Opel
+          <br>
+          <input type="checkbox" name="favorite3" value="mint" /> Ray-ban
+          <input type="checkbox" name="favorite1" value="chocolate" /> Starbucks
+          <br>
+          <input type="checkbox" name="favorite2" value="vanilla" /> Tesla
+          <input type="checkbox" name="favorite3" value="mint" /> Yahoo
+        </div>
+      </div>
+      <div class="column-2">
+        <h2>Kapcsolat</h2>
+        <div>
+          <label for="phone_number">Telefonszám</label>
+          <br>
+          <input type="tel" id="phone_number" name="phone_number" placeholder="+36&nbsp--&nbsp----&nbsp---" required pattern="[+]{1}-d{2}-d{2}-d{3}-d{4} />
+          <br/>
+          <label for="email">Email</label>
+          <br>
+          <input type="email" id="email" name="name"  placeholder="nev@domain.hu" value="">
+        </div>
+        <div>
+          <label for="facebook_profile">Facebook profil</label>
+          <br>
+          <input type="url" id="facebook_profile" name="facebook_profile" placeholder="http://facebook.com/...">
+        </div>
+        <div>
+          <label for="twitter_profile">Twitter</label>
+          <br>
+          <input type="url" id="twitter_profile" name="twitter_profile" placeholder="http://twitter.com/...">
+        </div>
+        <div>
+          <label>Milyen házban laksz?</label>
+          <br/>
+          <select name="houses">
+            <option value="családi ház"></option>
+            <option value="családi ház">családi ház</option>
+            <option value="lakás">lakás</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="message-box">
+      <label for="msg">Bemutatkozás</label>
+      <br/>
+      <textarea id="msg" name="user_message"></textarea>
+    </div>
+    <div>
+      <label for="file-upload">CV Feltöltése</label>
+      <br>
+      <input id="file-upload" type="file"/>
+    </div>
+    <br/>
+    <div>
+      <input type="checkbox" name="checkbox" id="checkbox"><label for="checkbox">Elfogadom</label>
+    </div>
+    <br/>
+    <div>
+     <button type="submit" value="Submit">Mentés</button>
+     <button type="reset" value="Reset">Űrlap törlése</button>
+   </div>
+  </form>
+ </body>
+</html>

@@ -1,0 +1,19 @@
+
+body {
+  margin : 0 auto;
+  width: 500px;
+  text-align: justify;
+  flex-wrap: wrap;
+}
+
+div {
+  border-bottom: solid black 2px;
+}
+
+.first-box img {
+  float:left;
+}
+
+.second-box img {
+  float: right;
+}

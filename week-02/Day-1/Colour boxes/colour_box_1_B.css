@@ -1,0 +1,57 @@
+
+.container {
+  width: 900px;
+  margin: 0 auto;
+}
+
+
+#teal {
+    background: teal;
+    height: 100px;
+}
+
+
+#orange {
+  background: orange;
+  height: 500px;
+  width: 50px;
+  float: left;
+  display: inline;
+}
+
+#red {
+  background: red;
+  background-clip: content-box;
+  padding-left: 30px;
+  padding-right: 30px;
+  height: 500px;
+  width: 740px;
+  float: right;
+  display: inline;
+  position: relative;
+}
+
+#purple {
+  background: purple;
+  height: 500px;
+  width: 50px;
+  float: right;
+  display: inline;
+}
+
+#blue {
+
+    clear: both;
+    background: blue;
+    height: 100px;
+}
+
+#black-mini  {
+  background: black;
+  height: 100px;
+  width: 100px;
+  position: absolute;
+  bottom: 50px;
+  right: 50px;
+
+}
