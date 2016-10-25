@@ -1,0 +1,29 @@
+
+
+h1 {
+      color: blue;
+}
+
+h2 {
+      color: orange;
+}
+.text-1 {
+      color: black;
+}
+
+.text-2 {
+        list-style-type: square;
+        color: blue;
+}
+
+.text-3 {
+        list-style-type: circle;
+}
+
+.text-4 {
+        color: red;
+}
+
+.text-5 {
+        color: black;
+}

@@ -1,0 +1,42 @@
+
+.Section {
+  border: 30px solid green;
+  display: block;
+  position: relative;
+  margin: 0 0 30px 0;
+  width: 300px;
+  height: 280px;
+}
+
+.first-box  {
+  border-style:solid;
+  border-color: black;
+  position: relative;
+  height: 90px;
+  background-color: yellow;
+}
+
+.text {
+  font-size: 30px;
+  color: red;
+  position: absolute;
+  top: 30%;
+  left: 10%;
+}
+
+.second-box {
+  border-style:solid;
+  border-color: black;
+  position: relative;
+  height: 90px;
+  background-color: yellow;
+}
+
+
+.third-box {
+  border-style:solid;
+  border-color: black;
+  position: relative;
+  height: 90px;
+  background-color: yellow;
+}

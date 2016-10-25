@@ -1,0 +1,23 @@
+body {
+      margin: auto;
+      width: 50%;
+}
+
+div {
+          width: 320px;
+          padding: 0px 10px 0px 10px;
+          border: 5px solid;
+}
+
+#duck-side {
+            background-image: https://github.com/greenfox-academy/teaching-materials/blob/master/tools-and-coding/html-css/duck.png;
+            background-position:center;;
+}
+
+#duck-middle {
+          : ;
+}
+
+#duck-right {
+
+}

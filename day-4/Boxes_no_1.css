@@ -1,0 +1,54 @@
+
+.first-box {
+  border-style:solid;
+  border-color: black;
+  position: relative;
+  margin: 0 auto;
+  width: 300px;
+  height: 90px;
+  background-color: yellow;
+}
+
+.text {
+  font-size: 30px;
+  color: red;
+  position: absolute;
+  top: 30%;
+  left: 10%;
+}
+
+.second-box {
+  border-style:solid;
+  border-color: black;
+  position: relative;
+  margin: 0 auto;
+  width: 300px;
+  height: 90px;
+  background-color: yellow;
+}
+
+.text {
+  font-size: 30px;
+  color: red;
+  position: absolute;
+  top: 30%;
+  left: 10%;
+}
+
+.third-box {
+  border-style:solid;
+  border-color: black;
+  position: relative;
+  margin: 0 auto;
+  width: 300px;
+  height: 90px;
+  background-color: yellow;
+}
+
+.text {
+  font-size: 30px;
+  color: red;
+  position: absolute;
+  top: 30%;
+  left: 10%;
+}

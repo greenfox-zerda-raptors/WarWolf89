@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="Boxes_no_2.css">
+  </head>
+    <body>
+        <div class="Section">
+        <div class="first-box">
+          <div class="text">Apple</div>
+        </div>
+        <div class="second-box">
+          <div class="text">Pear</div>
+        </div>
+        <div class="third-box">
+          <div class="text">Melon</div>
+        </div>
+        </div>
+      <div class="Section">
+        <div class="first-box">
+          <div class="text">Potato</div>
+        </div>
+        <div class="second-box">
+          <div class="text">Carrot</div>
+        </div>
+        <div class="third-box">
+          <div class="text">Onion</div>
+        </div>
+    </p>
+  </body>
+<html>

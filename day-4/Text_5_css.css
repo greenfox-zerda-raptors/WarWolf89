@@ -1,0 +1,29 @@
+body {
+      margin: auto;
+      width: 50%;
+}
+
+div {
+          width: 320px;
+          padding: 30px 10px 30px 10px;
+          border: 5px solid;
+}
+
+#duck-side {
+  background-image: url("https://www.google.hu/search?q=duck&client=firefox-b&tbm=isch&imgil=m-3vsRONYVUHhM%253A%253BDbq-Zi2sVDrLSM%253Bhttp%25253A%25252F%25252Fwww.mapleleaffarms.com%25252Fabout-duck-breeds&source=iu&pf=m&fir=m-3vsRONYVUHhM%253A%252CDbq-Zi2sVDrLSM%252C_&usg=__TVQ7IM2sQlpmA8tmhgfgePL3u-0%3D&biw=1600&bih=789&ved=0ahUKEwjnyMLtt-vPAhWCXCwKHZPvBKIQyjcIKQ&ei=CswJWOebNIK5sQGT35OQCg#imgrc=m-3vsRONYVUHhM%3A");
+background-position: right top;
+background-repeat: no-repeat;
+background-size: contain;
+}
+
+/*$('#duck-side > img') {
+            position: absolute; top: 2px; right: 5px
+}*/
+
+#duck-middle {
+          : ;
+}
+
+#duck-right {
+
+}
