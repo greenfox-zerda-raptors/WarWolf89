@@ -1,0 +1,53 @@
+#Page_base {
+  margin-left: 60px;
+  width: auto;
+
+}
+#Container {
+  display: inline-block;
+  margin-left: 60px;
+  background: grey;
+  height: auto;
+  width: auto;
+  padding-left: 20px;
+}
+
+p {
+  text-align: justify;
+}
+
+#navbox {
+  box-sizing: content-box;
+  /*direction: ltr;*/
+  width: auto;
+  display: inline-block;
+  padding: 10px;
+  border: solid blue 2px;
+  background: white;
+  background-clip: border-box;
+  color: blue;
+}
+
+#navbox ul {
+  padding: 5;
+  list-style: decimal;
+  text-align: left;
+}
+
+h3 {
+  text-align: center;
+}
+
+#biobox {
+  padding-right: 10px;
+  padding-left: 10px;
+  padding-bottom: 10px;
+  padding-top: 5px;
+  display: inline-block;
+  box-sizing: border-box;
+  float: right;
+  width: 277px;
+}
+
+tbody {
+}
