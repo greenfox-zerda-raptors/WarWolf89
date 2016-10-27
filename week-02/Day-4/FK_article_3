@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Csoportrangadó, extrákkal</title>
+  <link rel="stylesheet" href="FK_article_3_css.css" type="text/css">
+  <script type="text/javascript">
+  var lineElement;
+  var linePosition=0;
+
+  window.addEventListener('DOMContentLoaded', function() {
+    lineElement = document.querySelector('.line');
+    linePosition = lineElement.offsetTop;
+  })
+
+   function handleScroll(event){
+     var scrollTop=0;
+     if(document.body.scrollTop){
+       scrollTop=document.body.scrollTop;
+     }
+     else if (document.documentElement.scrollTop){
+       scrollTop=document.documentElement.scrollTop;
+     }
+
+     if (scrollTop > linePosition){
+       lineElement.className="line sticky"
+     }
+     else {
+       console.log("kisebblett")
+       lineElement.className="line"
+     }
+   }
+ window.addEventListener("scroll", handleScroll);
+  </script>
+</head>
+  <body>
+    <div class="Wrapper">
+      <nav>
+        <ul>
+          <li><a href="">Home</a></li>
+          <li><a href="">News</a></li>
+          <li><a href="">Forum</a></li>
+          <li><a href="">Podcast</a></li>
+        </ul>
+        <ul class="social">
+          <li><a href="" class="fb">Facebook</a></li>
+          <li><a href="" class="tw">Twitter</a></li>
+        </ul>
+      </nav>
+      <div class="line">
+        <h1>Beharangozó</h1>
+        <h2>Csoportrangadó, extrákkal – III. MNF</h2>
+      </div>
+      <div class="Container">
+        <div id="Main_content">
+          <div id="Preface">
+            <h1>Csoportrangadó, extrákkal – III. MNF beharangozó</h1>
+            <p>Évente kétszer találkoznak, és évente kétszer verik egymást kékre-zöldre. Az NFC South két offensive nagyágyújának, a New Orleans Saints és az Atlanta Falcons hétfő esti rangadójának beharangozója következik, amiből kiderül, hogy mi a szeptemberi sorminta, mire kell figyelnünk a meccsen, és hogy miért is fontos a csoport szempontjából ez a mai meccs.</p>
+            <h2>Előélet</h2>
+            <p>Mindkét csapatnak kritikus pontja lehet a szezonnak ez az összecsapás, azonban merőben eltérő okok miatt. A Falcons az első heti hazai fiaskó után egy meglepően összeszedett játékkal egy klasszikus adok-kapok keretében 35-28-ra győzte le idegenben a Raiderst, ami némileg löketet adhat a csapatnak a folytatás szempontjából. Ha kedd hajnalban sikerülne megverni a Saints csapatát, akkor a csoport élére állnának, hiszen nem kis meglepetésre a Carolina és a Tampa is jelenleg 1-2-es mérleggel áll.</p>
+          </div>
+          <div id="comparison">
+            <h2>Támadóegységek</h2>
+            <p>Az eddigi (és az előző szezonban mutatott) teljesítménye alapján mindkét csapat taktikája egyszerű: több pontot feltenni a táblára mint az ellenfél. Az, hogy mi történik két offensive drive között, az szinte másodlagos, ugyanis egyik csapat védőegysége sem képes sokáig feltartani az ellenfelet (néhány üdítő színfoltot jelentő kivételtől eltekintve).</p>
+            <div class="content_home">
+              <img src="C:\Users\almasics\GreenFox\WarWolf89\week-02\Day-4\img\Atlanta_Falcons_logo.svg.png">
+              <p>Az Falcons támadófala a liga top 8-as csoportjába tartozik, az összesített O-line lista 5. helyén áll. Az Atlanta vezeti a ligát a meccsenkénti összesített támadóyardban (451/mérkőzés) és passzolt meccsenkénti yardban (355.5) is. A futójáték egyértelműen átalakult egy dupla-dinamit jellegű double committee backfielddé, miután Tevin Coleman nemcsak hogy visszatért a sérüléséből, hanem effektíven jobb számokat produkál (total yardok tekintetében), mint Devonta Freeman. A passzjáték terén Matt Ryan továbbra is hektikus, az elkapók frontján viszont Julio Jones mellé érkezett az offseasonben Mohamed Sanu, aki meglepően stabilan kapja el a felé dobott labdákat. Érdekesség az Atlanta offense-ével kapcsolatban, hogy a támadójátékaik 25%-a eddig no huddle offense-ből indult, ami úgy tűnik egy tudatos edzői taktika Dan Quinn és Kyle Shanahan részéről.</p>
+            </div>
+            <div class="content_away">
+              <img src="C:\Users\almasics\GreenFox\WarWolf89\week-02\Day-4\img\New-Orleans-Saints-Logo1.jpg">
+              <p>A Saints támadófala hasonló elit színvonalat képvisel, kiemelkedő a pass protection eddig a szezonban (mindössze 3 sack és 10 hit a két meccsen összesen) viszont az összesített offense tekintetében “csak” az ötödik, ami egyrészt nagyban köszönhető a Giants elleni meccsnek, másrészt a futójáték jóval gyengébb (64,5 meccsenkénti yard a 95,5 yardhoz képest) mint a Falconsé. A Saints fő fegyvere továbbra is a Brees (akinek még nincs interceptionje a szezonban) és barátai akciócsoport, de Willie Sneadnek különösen nagy szezonja van eddig (226 yard, 16,1-es elkapásonkénti átlag és még két touchdown is mellé), viszont egy lábujj-sérülés miatt kénytelen kihagyni a rangadót. A Saints offense eddigi legnagyobb gyengesége, hogy a TE játékot és Coby Fleenert nem sikerült integrálni a támadójátékba, bár hozzá kell tenni, hogy a 12 felé irányított labdából mindössze 3-at tudott elkapni. Számomra ez azt jelzi, hogy vagy koncentrációs problémák léptek fel nála, vagy egyszerűen még nem tudja elég pontosan futni az útvonalakat (első szezonja a Saintsben, Indianapolisból költözött át.)</p>
+            </div>
+            <h2>Védőegységek</h2>
+            <p>Nem épp az erőssége egyik csapatnak sem a játék ezen eleme, bár a New Orleans a Giants ellen a sérülések ellenére is mutatott biztató jeleket (sikerült ugyanis 3 mezőnygólon tartani az Eli Manning vezette egységet).</p>
+            <div class="content_home">
+              <p>Amint azt a podcastünkben is kifejtettük, az Atlanta legnagyobb problémája a védekezésben a mentális kihagyások: számtalanszor fordul elő, hogy egészen vállalható módon tartják az ellenfelet, majd egy ponton úgy döntenek, hogy pl. 8 védő inkább nem szereli a Tampa futóját. Vic Beasley fogadkozásai ellenére már az előszezonban is többször felmerült a pass rush ordító hiánya (egy, azaz egy darab sack az eddigi két meccsen) és a linebacker sor tackle problémái (abszolút ligautolsóként 129 összesített szerelés, a ligaelső Miaminak van 259). Érdekesség az Atlanta védősémájában, hogy nincs rögzített 3-4 vagy 4-3 felállás (bár egyértelműen a 4-3-ból van eddig több), akár mérkőzés közben tudják mozgatni a szélső linebackereket.</p>
+            </div>
+            <div class="content_away">
+              <p>A Saints ezzel szemben egyébként is vékonyka secondary-állománnyal vágott neki a szezonnak, és ennek tetejébe elvesztették a kezdő safetyjüket Kenny Vaccarot (boka) és az egyik kezdő cornerbackjüket, Delvin Breaux-t (szárkapocscsont) is, és bár a Giants ellen a helyettesítés tudta tartani magát, azonban a tapasztalat és a tudásbeli különbség előbb-utóbb vissza fog ütni. A pass rush és tackle tekintetében közvetlenül a Falcons előtt vannak a rangsor végén, hasonlóan szörnyű számokkal (2. azaz kettő sackkel két meccs alatt), és ezen eddig Rob Ryan elküldése (aki hol máshol kötne ki, mint Buffaloban) sem segített igazán.</p>
+            </div>
+          </div>
+          <div id="conclusion">
+            <p>Véleményem szerint ezt a meccset a turnoverek fogják eldönteni: ha sikerül valamely csapatnak már a kezdeti szakaszban megakasztani az ellenfél lendületét, az már akár elég lehet ahhoz hogy 7-10 ponttal elhúzzon tőle, és megnyerje a pisztolypárbajt. Személy szerint meglepődnék ha a meccsen kevesebb mint 60 pont születne, szóval egy ideális MNF mérkőzésnek nézünk elébe.</p>
+          </div>
+        </div>
+        <div id="Side_content">
+        </div>
+    </div>
+  </body>
+</html>
