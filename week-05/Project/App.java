@@ -12,10 +12,12 @@ public class App {
     public static void main(String[] args) {
         String input;
         TaskToDoList tasks = new TaskToDoList();
+        tasks.load();
         tasks.Help();
 
 // This do while loop will be a seperate method one day
         do {
+//          sout (enter username)
             System.out.println("Enter command");
             input=userInput.nextLine();
             String[] inputSplit = input.split(" ",2);
@@ -44,13 +46,16 @@ public class App {
 
             }
             else {
+                if (input.contentEquals("Exit") || input.contentEquals("e")){
+                break;
+            }
                 System.out.println("not a valid command, would you like to see the help menu? Y / N ");
                 input=userInput.nextLine();
                 if (input.contentEquals("Y")){
                     tasks.Help();
                 }
             }
-//           tasks.save();
+            tasks.save();
         }
         while (!input.contentEquals("Exit"));
 // will end here

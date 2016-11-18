@@ -6,6 +6,7 @@ public class Task {
 
     public String taskname;
     boolean completed=false;
+    int elementNumber;
 
     public Task(String taskname){
         this.taskname=taskname;

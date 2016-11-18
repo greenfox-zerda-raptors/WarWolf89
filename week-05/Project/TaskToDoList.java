@@ -49,23 +49,47 @@ public class TaskToDoList {
                 " complete   Completes an task\n" +
                 " c          shorthand for complete\n" +
                 " help       Print out this list again\n" +
-                " h          shorthand for help");
+                " h          shorthand for help\n" +
+                " Exit       Type anytime to Exit the program\n" +
+                " e          shorthand for exit\n");
+    }
+    public void load (){
+        BufferedReader br = null;
+        try {
+            br = new BufferedReader(new FileReader("C:/Users/almasics/GreenFox/WarWolf89/week-05/Project/save.txt"));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            String line = br.readLine();
+            while (line != null) {
+                System.out.println("This line is read from file:" + line);
+                line = br.readLine();
+            }
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
     }
 
-//    PrintWriter save = save("C:/Users/almasics/GreenFox/WarWolf89/week-05/Project");
-//    public static PrintWriter save(String fileLocation){
-//    try {
-//        File listOfTasks = new File(fileLocation);
-//        PrintWriter infoToWrite = new PrintWriter(
-//                new BufferedWriter(
-//                        new FileWriter(listOfTasks)));
-//
-//    }
-//    catch (Exception e){
-//        System.out.println(e.toString());
-//    }
-//    return null;
-//}
-
+    public void save() {
+        BufferedWriter bw = null;
+        try {
+            bw = new BufferedWriter(new FileWriter("C:/Users/almasics/GreenFox/WarWolf89/week-05/Project/save.txt"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        try {
+            for (Task i: tasks){
+                bw.write(i.toString());
+                bw.newLine();
+            }
+            bw.flush();
+            bw.close();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
 
 }
