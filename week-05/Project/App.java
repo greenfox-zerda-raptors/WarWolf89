@@ -12,7 +12,9 @@ public class App {
     public static void main(String[] args) {
         String input;
         TaskToDoList tasks = new TaskToDoList();
-        tasks.load();
+        System.out.println("Enter Username: ");
+        String username = userInput.nextLine();
+        tasks.load(username);
         tasks.Help();
 
 // This do while loop will be a seperate method one day
@@ -55,7 +57,7 @@ public class App {
                     tasks.Help();
                 }
             }
-            tasks.save();
+            tasks.save(username);
         }
         while (!input.contentEquals("Exit"));
 // will end here

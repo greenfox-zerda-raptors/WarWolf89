@@ -17,7 +17,14 @@ public class TaskToDoList {
 
     public void remove(int taskId) {
 
-        tasks.remove(taskId);
+        if(taskId >= tasks.size() || taskId<0)
+        {
+            System.out.println("Task does not exist");
+        }
+
+        else {
+            tasks.remove(taskId);
+        }
     }
 
     public void complete(int taskId) {
@@ -53,17 +60,25 @@ public class TaskToDoList {
                 " Exit       Type anytime to Exit the program\n" +
                 " e          shorthand for exit\n");
     }
-    public void load (){
+    public void load (String username){
         BufferedReader br = null;
+        String userFilePath = String.format("C:/Users/almasics/GreenFox/WarWolf89/week-05/Project/%s_save.txt", username);
         try {
-            br = new BufferedReader(new FileReader("C:/Users/almasics/GreenFox/WarWolf89/week-05/Project/save.txt"));
+            br = new BufferedReader(new FileReader(userFilePath));
         } catch (FileNotFoundException e) {
-            e.printStackTrace();
+            System.out.println("User will be created at Exit point");
+            return;
         }
 
         try {
             String line = br.readLine();
             while (line != null) {
+                String[] data = line.split("]",2);
+                Task temp = new Task(data[1]);
+                if (data[0].contentEquals("[X")){
+                    temp.completed=true;
+                }
+                tasks.add(temp);
                 System.out.println("This line is read from file:" + line);
                 line = br.readLine();
             }
@@ -73,10 +88,11 @@ public class TaskToDoList {
         }
     }
 
-    public void save() {
+    public void save(String username) {
         BufferedWriter bw = null;
+        String userFilePath = String.format("C:/Users/almasics/GreenFox/WarWolf89/week-05/Project/%s_save.txt", username);
         try {
-            bw = new BufferedWriter(new FileWriter("C:/Users/almasics/GreenFox/WarWolf89/week-05/Project/save.txt"));
+            bw = new BufferedWriter(new FileWriter(userFilePath));
         } catch (IOException e) {
             e.printStackTrace();
         }
