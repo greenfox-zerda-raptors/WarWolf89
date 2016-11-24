@@ -3,19 +3,36 @@
  */
 public class CodeWars1 {
     public static void main(String[] args) {
-        CodeWars1.persistence(4567);
+
+        System.out.println(CodeWars1.persistence(524237423));
 
     }
 
-    public static void persistence(long n) {
+    public static int persistence(long n) {
+
+        int multiply;
         String numberString = String.valueOf(n);
-        char[] charArray = numberString.toCharArray();
-        int[] workingNumber = new int [charArray.length];
-        int multiply=1;
-        for (int i = 0; i < charArray.length; i++) {
-                workingNumber[i] = Integer.parseInt(""+charArray[i]);
-                multiply =multiply * workingNumber[i];
+        if (n<10){
+            System.out.println(0);
         }
-        System.out.println(multiply);
+        do {
+            multiply=1;
+            char[] charArray = numberString.toCharArray();
+            int[] workingNumber = new int[charArray.length];
+
+            for (int i = 0; i < charArray.length; i++) {
+                workingNumber[i] = Integer.parseInt("" + charArray[i]);
+                if (workingNumber[i]!=0){
+                    multiply = multiply * workingNumber[i];
+                }
+
+            }
+            System.out.println(multiply);
+            numberString = String.valueOf(multiply);
+
+        }
+
+        while (multiply > 10);
+        return multiply;
     }
 }
