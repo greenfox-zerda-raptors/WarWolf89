@@ -4,7 +4,7 @@
 public class CodeWars1 {
     public static void main(String[] args) {
 
-        System.out.println(CodeWars1.persistence(524237423));
+        System.out.println(CodeWars1.persistence(23545472));
 
     }
 
@@ -13,7 +13,7 @@ public class CodeWars1 {
         int multiply;
         String numberString = String.valueOf(n);
         if (n<10){
-            System.out.println(0);
+            return 0;
         }
         do {
             multiply=1;
@@ -27,11 +27,10 @@ public class CodeWars1 {
                 }
 
             }
+            if (multiply > 10)
             System.out.println(multiply);
             numberString = String.valueOf(multiply);
-
         }
-
         while (multiply > 10);
         return multiply;
     }
