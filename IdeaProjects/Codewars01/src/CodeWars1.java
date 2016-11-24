@@ -4,12 +4,13 @@
 public class CodeWars1 {
     public static void main(String[] args) {
 
-        System.out.println(CodeWars1.persistence(23545472));
+        System.out.println(CodeWars1.persistence(25));
 
     }
 
     public static int persistence(long n) {
 
+        int counter=0;
         int multiply;
         String numberString = String.valueOf(n);
         if (n<10){
@@ -22,16 +23,13 @@ public class CodeWars1 {
 
             for (int i = 0; i < charArray.length; i++) {
                 workingNumber[i] = Integer.parseInt("" + charArray[i]);
-                if (workingNumber[i]!=0){
                     multiply = multiply * workingNumber[i];
-                }
 
             }
-            if (multiply > 10)
-            System.out.println(multiply);
             numberString = String.valueOf(multiply);
+            counter++;
         }
-        while (multiply > 10);
-        return multiply;
+        while (multiply >= 10);
+        return counter;
     }
 }
