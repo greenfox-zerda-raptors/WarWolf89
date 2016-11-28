@@ -1,3 +1,5 @@
+import sun.awt.image.IntegerInterleavedRaster;
+
 import java.util.*;
 
 public class Consecutives {
@@ -10,21 +12,28 @@ public class Consecutives {
 
     public static List<Integer> sumConsecutives(List<Integer> s) {
 
-        ListIterator<Integer> iterator = i.listIterator();
         ArrayList<Integer> sumOfNumbers = new ArrayList<>();
+        List<Integer> i = Arrays.asList(1, 4, 4, 4, 0, 4, 3, 3,1);
+        Integer firstNumber;
+        Integer secondNumber;
+        Integer sumFirstAndSecond;
 
-        for (int j = 1; j < i.size(); j++) {
-            Integer numberOne = i.get(j-1);
-            Integer numberTwo = i.get(j);
-            if (numberOne == numberTwo || numberTwo == iterator.next()) {
-                Integer sum_2 = numberOne + numberTwo + iterator.next();
-                sumOfNumbers.add(sum_2);
+        for (int j = 0; j < i.size()-1; j++) {
+                firstNumber = i.get(j);
+                secondNumber = i.get(j+1);
+
+            if (firstNumber == secondNumber){
+                sumFirstAndSecond = firstNumber + secondNumber;
+                sumOfNumbers.add(sumFirstAndSecond);
             }
-            else{
-                sumOfNumbers.add(numberOne);
-                sumOfNumbers.add(numberTwo);
-            }
+
+            else {
+                sumOfNumbers.add(firstNumber);
+                sumOfNumbers.add(secondNumber);
+                }
         }
+
+        sumOfNumbers.add(i.get(i.size() - 1));
         return sumOfNumbers;
     }
 }
