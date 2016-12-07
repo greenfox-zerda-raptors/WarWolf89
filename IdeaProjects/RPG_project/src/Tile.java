@@ -1,8 +1,6 @@
 import java.awt.*;
 
-/**
- * Created by zoloe on 2016. 12. 07..
- */
+
 public class Tile extends GameObject{
 
 

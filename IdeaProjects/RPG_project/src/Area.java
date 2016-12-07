@@ -1,9 +1,6 @@
 import java.awt.*;
 import java.util.ArrayList;
 
-/**
- * Created by zoloe on 2016. 12. 07..
- */
 public class Area implements Draw{
 
 
@@ -47,8 +44,7 @@ public class Area implements Draw{
     public void draw(Graphics graphics) {
         for (GameObject tile: tiles) {
             tile.draw(graphics);
-
         }
-        }
-
     }
+
+}

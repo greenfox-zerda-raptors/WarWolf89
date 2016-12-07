@@ -4,28 +4,57 @@ import java.awt.event.*;
 import java.util.ArrayList;
 
 
-/**
- * Created by zoloe on 2016. 12. 05..
- */
-public class Board extends JPanel {
-    GameObject myHero;
-    Area map;
+
+public class Board extends JPanel implements KeyListener {
+
+    GameObject myHero = new Hero(0,0);
+    Area map= new Area();
 
     public Board() {
 
-
         setPreferredSize(new Dimension(720, 900));
         setVisible(true);
-        myHero = new Hero(0,0);
-        map = new Area();
+        addKeyListener(this);
+        setFocusable(true);
+
     }
 
     @Override
-
     public void paint(Graphics graphics){
-
         map.draw(graphics);
         myHero.draw(graphics);
+    }
 
+    @Override
+    public void keyTyped(KeyEvent e) {
+
+    }
+
+    public void keyPressed(KeyEvent e) {
+        switch (e.getKeyCode()) {
+            case KeyEvent.VK_UP : {
+                myHero.moveHeroUp();
+                break;
+            }
+            case KeyEvent.VK_DOWN : {
+                myHero.moveHeroDown();
+                break;
+            }
+            case KeyEvent.VK_RIGHT : {
+                myHero.moveHeroRight();
+                break;
+            }case KeyEvent.VK_LEFT : {
+                myHero.moveHeroLeft();
+                break;
+            }
+            default:{
+                break;
+            }
+        }
+        repaint();
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
     }
 }

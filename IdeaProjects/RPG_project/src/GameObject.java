@@ -5,9 +5,7 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
-/**
- * Created by zoloe on 2016. 12. 05..
- */
+
 public abstract class GameObject implements Draw {
 
     BufferedImage image;
@@ -31,6 +29,18 @@ public abstract class GameObject implements Draw {
         if (image != null) {
             graphics.drawImage(image, posX * 72, posY * 72, null);
         }
+    }
+    public void moveHeroDown() {
+        posY+=1;
+    }
+    public void moveHeroUp() {
+        posY-=1;
+    }
+    public void moveHeroLeft() {
+        posX-=1;
+    }
+    public void moveHeroRight() {
+        posX+=1;
     }
 }
 
