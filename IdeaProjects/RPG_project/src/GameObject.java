@@ -9,11 +9,9 @@ import java.io.IOException;
 public abstract class GameObject implements Draw {
 
     BufferedImage image;
-    int posX, posY;
+    int posY;
+    int posX;
 
-    public GameObject() {
-
-    }
 
     public GameObject(String filename, int posX, int posY) {
         this.posX = posX;
@@ -30,17 +28,30 @@ public abstract class GameObject implements Draw {
             graphics.drawImage(image, posX * 72, posY * 72, null);
         }
     }
-    public void moveHeroDown() {
-        posY+=1;
+
+    public void moveHeroDown(Area map ) {
+        int nextTile=posY+1;
+        if(!map.isWall(posX,nextTile)){
+            posY+=1;
+        }
     }
-    public void moveHeroUp() {
-        posY-=1;
+    public void moveHeroUp(Area map) {
+        int nextTile=posY-1;
+        if(!map.isWall(posX,nextTile)){
+            posY-=1;
+        }
     }
-    public void moveHeroLeft() {
-        posX-=1;
+    public void moveHeroLeft(Area map) {
+        int nextTile = posX-1;
+        if(!map.isWall(nextTile,posY)){
+            posX-=1;
+        }
     }
-    public void moveHeroRight() {
-        posX+=1;
+    public void moveHeroRight(Area map) {
+        int nextTile = posX+1;
+        if(!map.isWall(nextTile,posY)){
+            posX+=1;
+        }
     }
 }
 

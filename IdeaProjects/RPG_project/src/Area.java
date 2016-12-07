@@ -5,10 +5,11 @@ public class Area implements Draw{
 
 
     ArrayList<GameObject> tiles;
+    int [][] map;
 
 
     public Area() {
-        int[][] map = new int[][]{
+        map = new int[][]{
                 {0, 1, 1, 1, 1, 1, 1, 1, 1, 1},
                 {0, 1, 1, 0, 0, 0, 0, 0, 0, 0},
                 {0, 0, 0, 0, 1, 1, 0, 1, 0, 0},
@@ -38,6 +39,10 @@ public class Area implements Draw{
                 tiles) {
             tile.draw(graphics);
         }
+    }
+
+    public boolean isWall(int x, int y){
+        return map[y][x] == 1;
     }
 
     @Override

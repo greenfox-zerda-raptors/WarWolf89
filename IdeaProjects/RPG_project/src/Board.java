@@ -33,18 +33,18 @@ public class Board extends JPanel implements KeyListener {
     public void keyPressed(KeyEvent e) {
         switch (e.getKeyCode()) {
             case KeyEvent.VK_UP : {
-                myHero.moveHeroUp();
+                myHero.moveHeroUp(map);
                 break;
             }
             case KeyEvent.VK_DOWN : {
-                myHero.moveHeroDown();
+                myHero.moveHeroDown(map);
                 break;
             }
             case KeyEvent.VK_RIGHT : {
-                myHero.moveHeroRight();
+                myHero.moveHeroRight(map);
                 break;
             }case KeyEvent.VK_LEFT : {
-                myHero.moveHeroLeft();
+                myHero.moveHeroLeft(map);
                 break;
             }
             default:{
