@@ -86,7 +86,25 @@ public class Board extends JPanel implements KeyListener {
             int posX = gameCharacter.getPosX();
             int posY = gameCharacter.getPosY();
             if (myHero.getPosX() == posX && myHero.getPosY() == posY) {
-                System.out.println("Fight lesz more");
+
+                do {
+                    gameCharacter.health -= myHero.damage;
+                    System.out.println(String.format("monster health is: %d", gameCharacter.health));
+                    myHero.health -= gameCharacter.damage;
+                    System.out.println(String.format("hero health is: %d", myHero.health));
+
+                    if (gameCharacter.health <= 0) {
+                        gameCharacter.setAlive(false);
+                        gameCharacter.setImage(null);
+                    }
+
+                    if (myHero.health <= 0) {
+                        myHero.setAlive(false);
+                        myHero.setImage(null);
+                    }
+
+                }
+                while (gameCharacter.isAlive() && myHero.isAlive());
             }
         }
 

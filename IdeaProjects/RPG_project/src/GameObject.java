@@ -7,13 +7,11 @@ import java.io.IOException;
 
 public abstract class GameObject implements Draw {
 
+
     BufferedImage image;
     int posY;
     int posX;
 
-    public GameObject() {
-
-    }
 
     public GameObject(String filename, int posX, int posY) {
         this.posX = posX;
@@ -69,6 +67,10 @@ public abstract class GameObject implements Draw {
 
     public int getPosX() {
         return posX;
+    }
+
+    public void setImage(BufferedImage image) {
+        this.image = image;
     }
 
 }

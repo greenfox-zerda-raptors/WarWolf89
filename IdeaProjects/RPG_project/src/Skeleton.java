@@ -6,8 +6,7 @@ public class Skeleton extends GameCharacter {
 
     String name;
 
-
     public Skeleton(int posX, int posY, String name) {
-        super("images/skeleton.png", posX, posY);
+        super("images/skeleton.png", posX, posY, 30, 3, true);
     }
 }
