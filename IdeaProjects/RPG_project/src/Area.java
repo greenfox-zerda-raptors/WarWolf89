@@ -1,11 +1,11 @@
 import java.awt.*;
 import java.util.ArrayList;
 
-public class Area implements Draw{
+public class Area implements Draw {
 
 
     ArrayList<GameObject> tiles;
-    int [][] map;
+    int[][] map;
 
 
     public Area() {
@@ -33,6 +33,7 @@ public class Area implements Draw{
 
         }
     }
+
     public void paint(Graphics graphics) {
         paint(graphics);
         for (GameObject tile :
@@ -41,13 +42,13 @@ public class Area implements Draw{
         }
     }
 
-    public boolean isWall(int x, int y){
+    public boolean isWall(int x, int y) {
         return map[y][x] == 1;
     }
 
     @Override
     public void draw(Graphics graphics) {
-        for (GameObject tile: tiles) {
+        for (GameObject tile : tiles) {
             tile.draw(graphics);
         }
     }

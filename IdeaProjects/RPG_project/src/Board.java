@@ -39,18 +39,22 @@ public class Board extends JPanel implements KeyListener {
         switch (e.getKeyCode()) {
             case KeyEvent.VK_UP: {
                 myHero.moveHeroUp(map);
+                myHero.modifyGameObjectImage("images/hero-up.png");
                 break;
             }
             case KeyEvent.VK_DOWN: {
                 myHero.moveHeroDown(map);
+                myHero.modifyGameObjectImage("images/hero-down.png");
                 break;
             }
             case KeyEvent.VK_RIGHT: {
                 myHero.moveHeroRight(map);
+                myHero.modifyGameObjectImage("images/hero-right.png");
                 break;
             }
             case KeyEvent.VK_LEFT: {
                 myHero.moveHeroLeft(map);
+                myHero.modifyGameObjectImage("images/hero-left.png");
                 break;
             }
             case KeyEvent.VK_SPACE: {
@@ -96,7 +100,6 @@ public class Board extends JPanel implements KeyListener {
                     System.out.println(String.format("hero health is: %d", myHero.health));
                     if (gameCharacter.health <= 0) {
                         gameCharacter.setAlive(false);
-                        gameCharacter.setImage(null);
                         iter.remove();
                     }
                     if (myHero.health <= 0) {

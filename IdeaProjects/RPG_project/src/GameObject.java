@@ -83,6 +83,15 @@ public abstract class GameObject implements Draw {
         this.filename = filename;
     }
 
+    public void modifyGameObjectImage(String filename) {
+        if (!this.filename.contentEquals(filename))
+            try {
+                image = ImageIO.read(new File(filename));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+    }
+
 
 }
 
