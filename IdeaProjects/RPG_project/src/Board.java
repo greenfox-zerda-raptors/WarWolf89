@@ -19,7 +19,7 @@ public class Board extends JPanel implements KeyListener {
         setVisible(true);
         addKeyListener(this);
         setFocusable(true);
-        skeletonAddMethod(map);
+        enemyAddMethod(map);
     }
 
     @Override
@@ -72,7 +72,7 @@ public class Board extends JPanel implements KeyListener {
     public void keyReleased(KeyEvent e) {
     }
 
-    public void skeletonAddMethod(Area map) {
+    public void enemyAddMethod(Area map) {
         int n = rand.nextInt(3) + 3;
         for (int i = 0; i <= n; i++) {
             int randomPosX = rand.nextInt(10);
@@ -87,7 +87,7 @@ public class Board extends JPanel implements KeyListener {
                 GameCharacter boss = new Boss(bossPosX, bossPosY);
                 list.add(boss);
             }
-            while (map.isWall(randomPosX, randomPosY) || (randomPosX == 0 && randomPosY == 0) || (bossPosX != randomPosX && bossPosY != randomPosY)) {
+            while (map.isWall(randomPosX, randomPosY) || (randomPosX == 0 && randomPosY == 0) || (bossPosX == randomPosX && bossPosY == randomPosY)) {
                 randomPosX = rand.nextInt(10);
                 randomPosY = rand.nextInt(10);
             }
@@ -115,6 +115,9 @@ public class Board extends JPanel implements KeyListener {
                     if (myHero.health <= 0) {
                         myHero.setAlive(false);
                         myHero.setImage(null);
+                        onDeathEvent();
+
+
                     }
                 }
                 while (gameCharacter.isAlive() && myHero.isAlive());
@@ -122,5 +125,16 @@ public class Board extends JPanel implements KeyListener {
         }
 
 
+    }
+
+    public void onDeathEvent() {
+        JFrame parentFrame = new JFrame();
+        parentFrame.setSize(300, 300);
+        parentFrame.setLocationRelativeTo(null);
+        parentFrame.setVisible(true);
+        parentFrame.setFocusable(true);
+        JOptionPane deathMessage = new JOptionPane();
+        deathMessage.createDialog("You died");
+        parentFrame.add(deathMessage);
     }
 }

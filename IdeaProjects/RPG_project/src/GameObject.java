@@ -79,9 +79,6 @@ public abstract class GameObject implements Draw {
         return filename;
     }
 
-    public void setFilename(String filename) {
-        this.filename = filename;
-    }
 
     public void modifyGameObjectImage(String filename) {
         if (!this.filename.contentEquals(filename))
