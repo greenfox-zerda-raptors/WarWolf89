@@ -23,7 +23,7 @@ public abstract class GameObject implements Draw {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }// cons GameObject
+    }
 
     public void draw(Graphics graphics) {
         if (image != null) {
@@ -61,6 +61,14 @@ public abstract class GameObject implements Draw {
 
     public boolean positionBounds(int pos) {
         return pos >= 0 && pos <= 9;
+    }
+
+    public int getPosY() {
+        return posY;
+    }
+
+    public int getPosX() {
+        return posX;
     }
 
 }

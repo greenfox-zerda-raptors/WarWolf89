@@ -7,8 +7,10 @@ import java.util.Random;
 
 public class Board extends JPanel implements KeyListener {
 
+    Random rand = new Random();
     GameCharacter myHero = new Hero(0, 0);
     Area map = new Area();
+    ArrayList<GameCharacter> list = new ArrayList<>();
 
 
     public Board() {
@@ -30,7 +32,6 @@ public class Board extends JPanel implements KeyListener {
 
     @Override
     public void keyTyped(KeyEvent e) {
-
     }
 
     public void keyPressed(KeyEvent e) {
@@ -51,6 +52,10 @@ public class Board extends JPanel implements KeyListener {
                 myHero.moveHeroLeft(map);
                 break;
             }
+            case KeyEvent.VK_SPACE: {
+                heroFight(map);
+                break;
+            }
             default: {
                 break;
             }
@@ -62,21 +67,29 @@ public class Board extends JPanel implements KeyListener {
     public void keyReleased(KeyEvent e) {
     }
 
-    ArrayList<GameCharacter> list = new ArrayList<>();
-    Random rand = new Random();
-
     public void skeletonAddMethod(Area map) {
         int n = rand.nextInt(3) + 3;
         for (int i = 0; i <= n; i++) {
             int randomPosX = rand.nextInt(10);
             int randomPosY = rand.nextInt(10);
-            while (map.isWall(randomPosX, randomPosY)) {
+            while (map.isWall(randomPosX, randomPosY) || (randomPosX == 0 && randomPosY == 0)) {
                 randomPosX = rand.nextInt(10);
                 randomPosY = rand.nextInt(10);
             }
             GameCharacter skeleton = new Skeleton(randomPosX, randomPosY, String.format("skeleton %d", n));
             list.add(skeleton);
-
         }
+    }
+
+    public void heroFight(Area map) {
+        for (GameCharacter gameCharacter : list) {
+            int posX = gameCharacter.getPosX();
+            int posY = gameCharacter.getPosY();
+            if (myHero.getPosX() == posX && myHero.getPosY() == posY) {
+                System.out.println("Fight lesz more");
+            }
+        }
+
+
     }
 }

@@ -1,10 +1,4 @@
-import java.awt.*;
-
-
-public class Tile extends GameObject{
-
-
-
+public class Tile extends GameObject {
 
     public boolean moveable;
 
