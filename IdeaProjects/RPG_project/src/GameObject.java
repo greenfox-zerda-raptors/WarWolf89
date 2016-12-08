@@ -9,6 +9,7 @@ public abstract class GameObject implements Draw {
 
 
     BufferedImage image;
+    String filename;
     int posY;
     int posX;
 
@@ -16,6 +17,7 @@ public abstract class GameObject implements Draw {
     public GameObject(String filename, int posX, int posY) {
         this.posX = posX;
         this.posY = posY;
+        this.filename = filename;
         try {
             image = ImageIO.read(new File(filename));
         } catch (IOException e) {
@@ -72,6 +74,15 @@ public abstract class GameObject implements Draw {
     public void setImage(BufferedImage image) {
         this.image = image;
     }
+
+    public String getFilename() {
+        return filename;
+    }
+
+    public void setFilename(String filename) {
+        this.filename = filename;
+    }
+
 
 }
 

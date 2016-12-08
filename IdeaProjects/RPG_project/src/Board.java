@@ -3,6 +3,7 @@ import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Random;
 
 public class Board extends JPanel implements KeyListener {
@@ -82,27 +83,26 @@ public class Board extends JPanel implements KeyListener {
     }
 
     public void heroFight(Area map) {
-        for (GameCharacter gameCharacter : list) {
+        Iterator<GameCharacter> iter = list.iterator();
+        while (iter.hasNext()) {
+            GameCharacter gameCharacter = iter.next();
             int posX = gameCharacter.getPosX();
             int posY = gameCharacter.getPosY();
             if (myHero.getPosX() == posX && myHero.getPosY() == posY) {
-
                 do {
                     gameCharacter.health -= myHero.damage;
                     System.out.println(String.format("monster health is: %d", gameCharacter.health));
                     myHero.health -= gameCharacter.damage;
                     System.out.println(String.format("hero health is: %d", myHero.health));
-
                     if (gameCharacter.health <= 0) {
                         gameCharacter.setAlive(false);
                         gameCharacter.setImage(null);
+                        iter.remove();
                     }
-
                     if (myHero.health <= 0) {
                         myHero.setAlive(false);
                         myHero.setImage(null);
                     }
-
                 }
                 while (gameCharacter.isAlive() && myHero.isAlive());
             }
