@@ -1,5 +1,4 @@
 import javax.imageio.ImageIO;
-
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -12,6 +11,9 @@ public abstract class GameObject implements Draw {
     int posY;
     int posX;
 
+    public GameObject() {
+
+    }
 
     public GameObject(String filename, int posX, int posY) {
         this.posX = posX;
@@ -29,29 +31,37 @@ public abstract class GameObject implements Draw {
         }
     }
 
-    public void moveHeroDown(Area map ) {
-        int nextTile=posY+1;
-        if(!map.isWall(posX,nextTile)){
-            posY+=1;
-        }
-    }
     public void moveHeroUp(Area map) {
-        int nextTile=posY-1;
-        if(!map.isWall(posX,nextTile)){
-            posY-=1;
+        int nextTile = posY - 1;
+        if (positionBounds(nextTile) && !map.isWall(posX, nextTile)) {
+            posY -= 1;
         }
     }
+
+    public void moveHeroDown(Area map) {
+        int nextTile = posY + 1;
+        if (positionBounds(nextTile) && !map.isWall(posX, nextTile)) {
+            posY += 1;
+        }
+    }
+
     public void moveHeroLeft(Area map) {
-        int nextTile = posX-1;
-        if(!map.isWall(nextTile,posY)){
-            posX-=1;
+        int nextTile = posX - 1;
+        if (positionBounds(nextTile) && !map.isWall(nextTile, posY)) {
+            posX -= 1;
         }
     }
+
     public void moveHeroRight(Area map) {
-        int nextTile = posX+1;
-        if(!map.isWall(nextTile,posY)){
-            posX+=1;
+        int nextTile = posX + 1;
+        if (positionBounds(nextTile) && !map.isWall(nextTile, posY)) {
+            posX += 1;
         }
     }
+
+    public boolean positionBounds(int pos) {
+        return pos >= 0 && pos <= 9;
+    }
+
 }
 

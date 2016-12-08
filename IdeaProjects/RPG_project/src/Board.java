@@ -1,28 +1,31 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.*;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.util.ArrayList;
-
-
+import java.util.Random;
 
 public class Board extends JPanel implements KeyListener {
 
-    GameObject myHero = new Hero(0,0);
-    Area map= new Area();
+    GameCharacter myHero = new Hero(0, 0);
+    Area map = new Area();
+
 
     public Board() {
-
         setPreferredSize(new Dimension(720, 900));
         setVisible(true);
         addKeyListener(this);
         setFocusable(true);
-
+        skeletonAddMethod(map);
     }
 
     @Override
-    public void paint(Graphics graphics){
+    public void paint(Graphics graphics) {
         map.draw(graphics);
         myHero.draw(graphics);
+        for (GameCharacter gameCharacter : list) {
+            gameCharacter.draw(graphics);
+        }
     }
 
     @Override
@@ -32,22 +35,23 @@ public class Board extends JPanel implements KeyListener {
 
     public void keyPressed(KeyEvent e) {
         switch (e.getKeyCode()) {
-            case KeyEvent.VK_UP : {
+            case KeyEvent.VK_UP: {
                 myHero.moveHeroUp(map);
                 break;
             }
-            case KeyEvent.VK_DOWN : {
+            case KeyEvent.VK_DOWN: {
                 myHero.moveHeroDown(map);
                 break;
             }
-            case KeyEvent.VK_RIGHT : {
+            case KeyEvent.VK_RIGHT: {
                 myHero.moveHeroRight(map);
                 break;
-            }case KeyEvent.VK_LEFT : {
+            }
+            case KeyEvent.VK_LEFT: {
                 myHero.moveHeroLeft(map);
                 break;
             }
-            default:{
+            default: {
                 break;
             }
         }
@@ -56,5 +60,23 @@ public class Board extends JPanel implements KeyListener {
 
     @Override
     public void keyReleased(KeyEvent e) {
+    }
+
+    ArrayList<GameCharacter> list = new ArrayList<>();
+    Random rand = new Random();
+
+    public void skeletonAddMethod(Area map) {
+        int n = rand.nextInt(3) + 3;
+        for (int i = 0; i <= n; i++) {
+            int randomPosX = rand.nextInt(10);
+            int randomPosY = rand.nextInt(10);
+            while (map.isWall(randomPosX, randomPosY)) {
+                randomPosX = rand.nextInt(10);
+                randomPosY = rand.nextInt(10);
+            }
+            GameCharacter skeleton = new Skeleton(randomPosX, randomPosY, String.format("skeleton %d", n));
+            list.add(skeleton);
+
+        }
     }
 }
