@@ -77,7 +77,17 @@ public class Board extends JPanel implements KeyListener {
         for (int i = 0; i <= n; i++) {
             int randomPosX = rand.nextInt(10);
             int randomPosY = rand.nextInt(10);
-            while (map.isWall(randomPosX, randomPosY) || (randomPosX == 0 && randomPosY == 0)) {
+            int bossPosX = rand.nextInt(10);
+            int bossPosY = rand.nextInt(10);
+            if (i == 1) {
+                while (map.isWall(bossPosX, bossPosY) || (bossPosX == 0 && bossPosY == 0)) {
+                    bossPosX = rand.nextInt(10);
+                    bossPosY = rand.nextInt(10);
+                }
+                GameCharacter boss = new Boss(bossPosX, bossPosY);
+                list.add(boss);
+            }
+            while (map.isWall(randomPosX, randomPosY) || (randomPosX == 0 && randomPosY == 0) || (bossPosX != randomPosX && bossPosY != randomPosY)) {
                 randomPosX = rand.nextInt(10);
                 randomPosY = rand.nextInt(10);
             }
