@@ -13,6 +13,9 @@ public abstract class GameObject implements Draw {
     int posY;
     int posX;
 
+    public GameObject() {
+
+    }
 
     public GameObject(String filename, int posX, int posY) {
         this.posX = posX;

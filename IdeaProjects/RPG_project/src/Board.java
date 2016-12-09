@@ -8,11 +8,10 @@ import java.util.Random;
 
 public class Board extends JPanel implements KeyListener {
 
-    Random rand = new Random();
-    GameCharacter myHero = new Hero(0, 0);
-    Area map = new Area();
-    ArrayList<GameCharacter> list = new ArrayList<>();
-
+    private Random rand = new Random();
+    private GameCharacter myHero = new Hero(0, 0);
+    private Area map = new Area();
+    private ArrayList<GameCharacter> list = new ArrayList<>();
 
     public Board() {
         setPreferredSize(new Dimension(720, 900));
@@ -72,7 +71,7 @@ public class Board extends JPanel implements KeyListener {
     public void keyReleased(KeyEvent e) {
     }
 
-    public void enemyAddMethod(Area map) {
+    private void enemyAddMethod(Area map) {
         int n = rand.nextInt(3) + 3;
         for (int i = 0; i <= n; i++) {
             int randomPosX = rand.nextInt(10);
@@ -92,11 +91,12 @@ public class Board extends JPanel implements KeyListener {
                 randomPosY = rand.nextInt(10);
             }
             GameCharacter skeleton = new Skeleton(randomPosX, randomPosY, String.format("skeleton %d", n));
+            /*if a I have time, will add a method that checks for skeleton positions*/
             list.add(skeleton);
         }
     }
 
-    public void heroFight(Area map) {
+    private void heroFight(Area map) {
         Iterator<GameCharacter> iter = list.iterator();
         while (iter.hasNext()) {
             GameCharacter gameCharacter = iter.next();
@@ -115,26 +115,39 @@ public class Board extends JPanel implements KeyListener {
                     if (myHero.health <= 0) {
                         myHero.setAlive(false);
                         myHero.setImage(null);
-                        onDeathEvent();
-
-
+                        onHeroDeathEvent();
                     }
                 }
                 while (gameCharacter.isAlive() && myHero.isAlive());
             }
         }
-
-
     }
 
-    public void onDeathEvent() {
-        JFrame parentFrame = new JFrame();
-        parentFrame.setSize(300, 300);
-        parentFrame.setLocationRelativeTo(null);
-        parentFrame.setVisible(true);
-        parentFrame.setFocusable(true);
-        JOptionPane deathMessage = new JOptionPane();
-        deathMessage.createDialog("You died");
-        parentFrame.add(deathMessage);
+    private void onHeroDeathEvent() {
+        /* what this still needs: fade in delay, new buttons, button actionlisteners, a restart method */
+        Object[] options = {"Start new game",
+                "No, thanks",
+        };
+        ImageBackgroundPane panel = new ImageBackgroundPane();
+        int n = JOptionPane.showOptionDialog(this, panel,
+                "",
+                JOptionPane.YES_NO_OPTION,
+                JOptionPane.PLAIN_MESSAGE,
+                null,
+                options,
+                options[1]);
+//        int n = JOptionPane.showOptionDialog(this,
+//                "Would you like to start new Game?",
+//                "",
+//                JOptionPane.YES_NO_OPTION,
+//                JOptionPane.QUESTION_MESSAGE,
+//                null,
+//                options,
+//                options[1]);
     }
+
+    private void onBossDeathEvent() {
+        /*this will be the win condition, on Boss death willl trigger portal, that will generate new map*/
+    }
+
 }
