@@ -13,6 +13,7 @@ public class Board extends JPanel implements KeyListener {
     private Area map = new Area();
     private ArrayList<GameCharacter> list = new ArrayList<>();
 
+
     public Board() {
         setPreferredSize(new Dimension(720, 900));
         setVisible(true);
@@ -114,20 +115,21 @@ public class Board extends JPanel implements KeyListener {
                     }
                     if (myHero.health <= 0) {
                         myHero.setAlive(false);
-                        myHero.setImage(null);
                         onHeroDeathEvent();
                     }
                 }
-                while (gameCharacter.isAlive() && myHero.isAlive());
+                while (gameCharacter.isAlive() && myHero.isAlive() && (myHero.posX != 0 && myHero.posY != 0));
             }
         }
     }
 
     private void onHeroDeathEvent() {
         /* what this still needs: fade in delay, new buttons, button actionlisteners, a restart method */
+
         Object[] options = {"Start new game",
                 "No, thanks",
         };
+
         ImageBackgroundPane panel = new ImageBackgroundPane();
         int n = JOptionPane.showOptionDialog(this, panel,
                 "",
@@ -136,18 +138,24 @@ public class Board extends JPanel implements KeyListener {
                 null,
                 options,
                 options[1]);
-//        int n = JOptionPane.showOptionDialog(this,
-//                "Would you like to start new Game?",
-//                "",
-//                JOptionPane.YES_NO_OPTION,
-//                JOptionPane.QUESTION_MESSAGE,
-//                null,
-//                options,
-//                options[1]);
+        if (n == JOptionPane.YES_OPTION) {
+            resetBoard();
+        }
+        if (n == JOptionPane.NO_OPTION) {
+            System.exit(n);
+        }
     }
 
     private void onBossDeathEvent() {
-        /*this will be the win condition, on Boss death willl trigger portal, that will generate new map*/
+        /*this will be the win condition, on Boss death will trigger portal, that will generate new map*/
     }
 
+    private void resetBoard() {
+        myHero.setAlive(true);
+        myHero.setHealth(100);
+        myHero.setPosX(0);
+        myHero.setPosY(0);
+        this.invalidate();
+
+    }
 }

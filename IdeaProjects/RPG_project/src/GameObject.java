@@ -11,6 +11,15 @@ public abstract class GameObject implements Draw {
     BufferedImage image;
     String filename;
     int posY;
+
+    public void setPosY(int posY) {
+        this.posY = posY;
+    }
+
+    public void setPosX(int posX) {
+        this.posX = posX;
+    }
+
     int posX;
 
     public GameObject() {
