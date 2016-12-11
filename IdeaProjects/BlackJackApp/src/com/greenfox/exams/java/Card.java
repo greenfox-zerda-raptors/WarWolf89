@@ -12,4 +12,8 @@ public class Card {
         this.value = value;
     }
 
+    public String toString() {
+        return String.format("%s with the value of %d", name, value);
+    }
+
 }
