@@ -10,5 +10,6 @@ public class Moneymarket extends Account {
     @Override
     public void auditMethod() {
         super.auditMethod();
+        System.out.println("Audit method for Moneymarket account");
     }
 }

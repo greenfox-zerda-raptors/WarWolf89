@@ -10,10 +10,11 @@ public class App {
         Bank myBank = new Bank();
         myBank.add(checkingAccount);
         Account savingsAccount = new Savings(125, Bob);
-        savingsAccount.addDepositToAccount(200);
         myBank.add(savingsAccount);
         Bank.bankToString(myBank);
         myBank.transferBetweenAccounts(checkingAccount, savingsAccount, 100);
         Bank.bankToString(myBank);
+        savingsAccount.auditMethod();
+        checkingAccount.auditMethod();
     }
 }
