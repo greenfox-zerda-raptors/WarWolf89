@@ -4,7 +4,7 @@
 public class Account implements BankingOperations {
 
     private int accountNumber;
-    private static int balance = 0;
+    private int balance = 0;
 
     @Override
     public void auditMethod() {
