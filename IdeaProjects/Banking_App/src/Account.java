@@ -5,6 +5,7 @@ public class Account implements BankingOperations {
 
     private int accountNumber;
     private int balance = 0;
+    User user;
 
     @Override
     public void auditMethod() {
@@ -16,16 +17,22 @@ public class Account implements BankingOperations {
         return balance;
     }
 
-    public Account() {
-
-    }
-
     public Account(int accountNumber, User user) {
+        this.user = user;
         this.accountNumber = accountNumber;
     }
 
+
     public String toString() {
-        return String.format("account number is %d, account balance is %d", accountNumber, balance);
+        return String.format("account number is %d, account balance is %d, Client's name is %s", accountNumber, balance, user);
+    }
+
+    public void setBalance(int balance) {
+        this.balance = balance;
+    }
+
+    public int getBalance() {
+        return balance;
     }
 
 }

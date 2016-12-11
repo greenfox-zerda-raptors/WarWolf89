@@ -11,4 +11,8 @@ public class User {
         this.lastName = lastName;
         this.adress = adress;
     }
+
+    public String toString() {
+        return String.format(" %s %s, adress is %s", firstName, lastName, adress);
+    }
 }
