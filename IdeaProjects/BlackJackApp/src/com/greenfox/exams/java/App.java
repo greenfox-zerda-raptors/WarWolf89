@@ -6,13 +6,8 @@ package com.greenfox.exams.java;
 public class App {
     public static void main(String[] args) {
         Deck deck = new Deck();
-        Deck.deckFill(deck);
-        Deck usedcard = new Deck();
-        Deck.cardDraw(deck, usedcard);
-        for (int i = 0; i < usedcard.size(); i++) {
-            System.out.println(usedcard);
-        }
-        System.out.println(deck);
-
+        deck.drawCard();
+        System.out.println(deck.getUsedCards().toString());
+        System.out.println(deck.getCards().toString());
     }
 }
