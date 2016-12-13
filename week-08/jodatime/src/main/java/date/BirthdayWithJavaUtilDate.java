@@ -2,6 +2,7 @@ package date;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Scanner;
 
@@ -28,20 +29,56 @@ public final class BirthdayWithJavaUtilDate implements BirthdayCalculator<Date> 
 
     @Override
     public boolean isAnniversaryToday(Date date) {
-        // TODO - return with true if today is the same month+day as date
+        SimpleDateFormat df = new SimpleDateFormat("MM-dd");
+        String currentDate = df.format(new Date());
+        String compareDate = df.format(date);
+        if (currentDate.matches(compareDate)) {
+            return true;
+        }
         return false;
     }
 
     @Override
     public int calculateAgeInYears(Date birthday) {
-        // TODO - return how many years age the input date 'birthday' was
-        return -1;
+        SimpleDateFormat df = new SimpleDateFormat("yyyy");
+        String currentDate = df.format(new Date());
+        String compareDate = df.format(birthday);
+        int currentYear = Integer.parseInt(currentDate);
+        int compareYear = Integer.parseInt(compareDate);
+        return currentYear - compareYear;
     }
+
 
     @Override
     public int calculateDaysToNextAnniversary(Date date) {
-        // TODO - the number of days remaining to the next anniversary of 'date' (e.g. if tomorrow, return 1)
-        return -1;
+        final Calendar c = Calendar.getInstance();
+        c.setTime(date);
+        final Calendar today = Calendar.getInstance();
+
+        final int BMonth = c.get(Calendar.MONTH);
+        final int CMonth = today.get(Calendar.MONTH);
+
+        final int BDate = c.get(Calendar.DAY_OF_MONTH);
+        final int CDate = today.get(Calendar.DAY_OF_MONTH);
+
+        c.set(Calendar.YEAR, today.get(Calendar.YEAR));
+        c.set(Calendar.DAY_OF_WEEK,
+                today.get(Calendar.DAY_OF_WEEK));
+        if (BMonth < CMonth) {
+            c.set(Calendar.YEAR,
+                    today.get(Calendar.YEAR) + 1);
+        } else if (BMonth == CMonth) {
+            if (BDate < CDate) {
+                c.set(Calendar.YEAR,
+                        today.get(Calendar.YEAR) + 1);
+            }
+        }
+
+        final long millis = c.getTimeInMillis()
+                - today.getTimeInMillis();
+        final long days = millis / 86400000;
+        int daysInINt = new Long(days).intValue();
+        return daysInINt;
     }
 
     public static void main(String[] args) {
