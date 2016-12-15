@@ -30,7 +30,7 @@ public class Sprinter implements Runnable {
         }
     }
 
-    public String getName() {
+    private String getName() {
         return name;
     }
 
@@ -43,8 +43,7 @@ public class Sprinter implements Runnable {
     }
 
     private boolean hasFinishedTheRace() {
-        boolean finishedTheRace = distance >= 100;
-        return finishedTheRace;
+        return distance >= 100;
     }
 
     public void run() {
