@@ -51,9 +51,13 @@ public class MainFrame extends JFrame {
         SwingWorker<Void, Void> worker = new SwingWorker<Void, Void>() {
             @Override
             protected Void doInBackground() throws Exception {
+                Sprinter sprinter1 = new TeamUnitedStates();
+                Thread sprintthread = new Thread(sprinter1);
+                sprintthread.start();
                 return null;
             }
-        }
 
+        };
+        worker.execute();
     }
 }

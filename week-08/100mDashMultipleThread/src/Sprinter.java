@@ -13,7 +13,7 @@ public class Sprinter implements Runnable {
     }
 
 
-    private void moveSprinter() {
+    private String moveSprinter() {
         for (distance = 0; distance <= 100; distance++) {
             System.out.println(getStringForPrint());
             if (hasFinishedTheRace()) {
@@ -28,6 +28,7 @@ public class Sprinter implements Runnable {
                 e.printStackTrace();
             }
         }
+        return getStringForPrint();
     }
 
     private String getName() {
