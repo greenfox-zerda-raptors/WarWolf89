@@ -13,25 +13,21 @@ public class ThreadOne implements Runnable {
 
 
     private void soutThis() {
-        System.out.println("First thread starts here");
+        System.out.println("Second thread starts here");
         for (String numberlist : numberList) {
             System.out.println(numberlist);
+            try {
+                Thread.sleep(300);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
     }
 
     @Override
 
     public void run() {
-        System.out.println(Thread.currentThread().getName());
-        for (int i = 0; i < 100; i++) {
-            System.out.println(i);
-            try {
-                Thread.sleep(200);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
-
+        soutThis();
     }
 }
 

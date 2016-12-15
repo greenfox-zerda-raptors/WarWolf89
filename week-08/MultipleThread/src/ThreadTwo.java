@@ -17,22 +17,16 @@ public class ThreadTwo implements Runnable {
         System.out.println("Second thread starts here");
         for (String numberlist : numberList) {
             System.out.println(numberlist);
-        }
-    }
-
-    @Override
-    public void run() {
-        System.out.println(Thread.currentThread().getName());
-        for (int i = 50; i < 100; i++) {
-
-            System.out.println(i);
             try {
                 Thread.sleep(300);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
         }
+    }
 
-
+    @Override
+    public void run() {
+        soutThis();
     }
 }
