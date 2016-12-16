@@ -8,7 +8,8 @@ import java.awt.*;
 public class MainFrame extends JFrame {
 
     private JButton start;
-    private JLabel statusTracker;
+    private JLabel statusTrackerTeamOne;
+    private JLabel statusTrackerTeamTwo;
     private Toolkit tk = Toolkit.getDefaultToolkit();
 
     public MainFrame() {
@@ -29,8 +30,11 @@ public class MainFrame extends JFrame {
         mainPanel.setSize(new Dimension(600, 400));
         add(mainPanel, BorderLayout.CENTER);
 
-        statusTracker = new JLabel("Race status");
-        mainPanel.add(statusTracker);
+        statusTrackerTeamOne = new JLabel("Race status");
+        mainPanel.add(statusTrackerTeamOne);
+
+        statusTrackerTeamTwo = new JLabel("Race status");
+        mainPanel.add(statusTrackerTeamTwo);
 
         start = new JButton("Start the race");
         add(start, BorderLayout.PAGE_END);
@@ -41,6 +45,7 @@ public class MainFrame extends JFrame {
     }
 
     private void start() {
-
+        Sprinter sprinter = new TeamUnitedStates(statusTrackerTeamOne);
+        Sprinter sprinter2 = new TeamChina(statusTrackerTeamTwo);
     }
 }
