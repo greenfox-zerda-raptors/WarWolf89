@@ -7,10 +7,11 @@ import java.awt.*;
 
 public class MainFrame extends JFrame {
 
-    private JButton start;
+    private JButton start, threadControl;
     private JLabel statusTrackerTeamOne;
     private JLabel statusTrackerTeamTwo;
     private Toolkit tk = Toolkit.getDefaultToolkit();
+    Sprinter sprinter, sprinter2;
 
     public MainFrame() {
         createGUI();
@@ -30,22 +31,37 @@ public class MainFrame extends JFrame {
         mainPanel.setSize(new Dimension(600, 400));
         add(mainPanel, BorderLayout.CENTER);
 
-        statusTrackerTeamOne = new JLabel("Race status");
+        statusTrackerTeamOne = new JLabel("Race status for team one");
         mainPanel.add(statusTrackerTeamOne);
 
-        statusTrackerTeamTwo = new JLabel("Race status");
+        statusTrackerTeamTwo = new JLabel("Race status for team two");
         mainPanel.add(statusTrackerTeamTwo);
 
+        JPanel buttonPanel = new JPanel();
+        add(buttonPanel, BorderLayout.PAGE_END);
+
         start = new JButton("Start the race");
-        add(start, BorderLayout.PAGE_END);
+        add(start = new JButton("Start the race"));
+        buttonPanel.add(start);
+        threadControl = new JButton("Pause the race");
+        add(threadControl = new JButton("Pause the race"));
+        buttonPanel.add(threadControl);
 
         start.addActionListener(e -> start());
+        threadControl.addActionListener(e -> suspend());
 
 
     }
 
     private void start() {
-        Sprinter sprinter = new TeamUnitedStates(statusTrackerTeamOne);
-        Sprinter sprinter2 = new TeamChina(statusTrackerTeamTwo);
+        sprinter = new TeamUnitedStates(statusTrackerTeamOne);
+        sprinter.startExecution();
+        sprinter2 = new TeamChina(statusTrackerTeamTwo);
+        sprinter2.startExecution();
+    }
+
+    private void suspend() {
+        sprinter.cancelExecution();
+        sprinter2.cancelExecution();
     }
 }

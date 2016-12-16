@@ -6,24 +6,32 @@ import java.util.List;
  */
 public class Sprinter {
 
-    JLabel statusLabel = new JLabel();
     String name;
-
     int sleepValue;
-    public Integer distance;
-    public static int numberOfRunnersWhoHaveFinished = 0;
+
+    private Integer distance;
+    private static int numberOfRunnersWhoHaveFinished = 0;
+    private JLabel statusLabel = new JLabel();
 
 
     public Sprinter(JLabel label) {
         this.statusLabel = label;
-        worker.execute();
 
     }
 
-    SwingWorker<Void, Integer> worker = new SwingWorker<Void, Integer>() {
+    public void startExecution() {
+        worker.execute();
+    }
+
+    public void cancelExecution() {
+        worker.cancel(true);
+
+    }
+
+    private SwingWorker<Void, Integer> worker = new SwingWorker<Void, Integer>() {
         @Override
         protected Void doInBackground() throws Exception {
-            for (distance = 0; distance <= 400; distance++) {
+            for (distance = 0; distance <= 400 && !isCancelled(); distance++) {
                 System.out.println(getStringForPrint());
                 if (hasFinishedTheRace()) {
                     numberOfRunnersWhoHaveFinished++;
@@ -35,7 +43,7 @@ public class Sprinter {
                 try {
                     Thread.sleep(sleepValue);
                 } catch (InterruptedException e) {
-                    e.printStackTrace();
+
                 }
             }
             return null;
