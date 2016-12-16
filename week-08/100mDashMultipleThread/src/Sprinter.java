@@ -6,16 +6,21 @@ public class Sprinter implements Runnable {
 
     String name;
     int sleepValue;
-    private int distance;
-    private static int numberOfRunnersWhoHaveFinished = 0;
+    public Integer distance;
+    public static int numberOfRunnersWhoHaveFinished = 0;
 
     public Sprinter() {
     }
 
 
-    private String moveSprinter() {
-        for (distance = 0; distance <= 100; distance++) {
+    private Integer moveSprinter() {
+        for (distance = 0; distance <= 400; distance++) {
             System.out.println(getStringForPrint());
+            synchronized (this) {
+                if (distance == 100) {
+                    notifyAll();
+                }
+            }
             if (hasFinishedTheRace()) {
                 numberOfRunnersWhoHaveFinished++;
                 System.out.println(victoryMessagePrint());
@@ -28,23 +33,23 @@ public class Sprinter implements Runnable {
                 e.printStackTrace();
             }
         }
-        return getStringForPrint();
+        return distance;
     }
 
-    private String getName() {
+    public String getName() {
         return name;
     }
 
-    private String getStringForPrint() {
+    public String getStringForPrint() {
         return String.format("Team %s has covered %d meters", getName(), distance);
     }
 
-    private String victoryMessagePrint() {
+    public String victoryMessagePrint() {
         return String.format("Team %s has finished the race at %d place!", getName(), numberOfRunnersWhoHaveFinished);
     }
 
-    private boolean hasFinishedTheRace() {
-        return distance >= 100;
+    public boolean hasFinishedTheRace() {
+        return distance >= 400;
     }
 
     public void run() {

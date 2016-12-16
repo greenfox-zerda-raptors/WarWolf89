@@ -1,7 +1,5 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 /**
  * Created by almasics on 2016.12.15..
@@ -37,24 +35,22 @@ public class MainFrame extends JFrame {
         start = new JButton("Start the race");
         add(start, BorderLayout.PAGE_END);
 
-        start.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                start();
-            }
-        });
+        start.addActionListener(e -> start());
 
 
     }
 
     private void start() {
-        SwingWorker<Void, Void> worker = new SwingWorker<Void, Void>() {
+        SwingWorker<String, Void> worker = new SwingWorker<String, Void>() {
             @Override
-            protected Void doInBackground() throws Exception {
+            protected String doInBackground() throws Exception {
                 Sprinter sprinter1 = new TeamUnitedStates();
-                Thread sprintthread = new Thread(sprinter1);
-                sprintthread.start();
-                return null;
+                Sprinter sprinter2 = new TeamChina();
+                Thread sprintthread1 = new Thread(sprinter1);
+                Thread sprintthread2 = new Thread(sprinter2);
+                sprintthread1.start();
+                sprintthread2.start();
+                return sprintthread1.toString();
             }
 
         };
