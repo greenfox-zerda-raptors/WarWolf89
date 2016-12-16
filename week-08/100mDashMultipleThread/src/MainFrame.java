@@ -61,14 +61,18 @@ public class MainFrame extends JFrame {
     private void suspend() {
         if (!sprinter.getPaused()) {
             sprinter.pauseExecution();
+            threadControl.setText("Resume the race");
         } else {
             sprinter.resumeExecution();
+            threadControl.setText("Pause the race");
         }
 
         if (!sprinter2.getPaused()) {
             sprinter2.pauseExecution();
+            threadControl.setText("Resume the race");
         } else {
             sprinter2.resumeExecution();
+            threadControl.setText("Pause the race");
         }
     }
 }

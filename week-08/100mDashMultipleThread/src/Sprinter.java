@@ -10,11 +10,10 @@ public class Sprinter {
     int sleepValue;
 
 
-    public boolean paused = false;
+    private boolean paused = false;
     private Integer distance;
     private static int numberOfRunnersWhoHaveFinished = 0;
     private JLabel statusLabel = new JLabel();
-    private int longWait = 10000;
 
 
     public Sprinter(JLabel label) {
