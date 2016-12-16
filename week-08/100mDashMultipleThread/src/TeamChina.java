@@ -8,28 +8,22 @@ public class TeamChina extends Sprinter {
         this.sleepValue = 400;
     }
 
-    private Integer moveSprinter() {
-        synchronized (this) {
-            for (distance = 0; distance <= 400; distance++) {
-                try {
-                    wait();
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                System.out.println(getStringForPrint());
-                if (hasFinishedTheRace()) {
-                    numberOfRunnersWhoHaveFinished++;
-                    System.out.println(victoryMessagePrint());
-                    break;
-                }
-                distance++;
-                try {
-                    Thread.sleep(sleepValue);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
+    private synchronized Integer moveSprinter() {
+        for (distance = 0; distance <= 400; distance++) {
+            System.out.println(getStringForPrint());
+            if (hasFinishedTheRace()) {
+                numberOfRunnersWhoHaveFinished++;
+                System.out.println(victoryMessagePrint());
+                break;
+            }
+            distance++;
+            try {
+                Thread.sleep(sleepValue);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
             }
         }
+
         return distance;
     }
 

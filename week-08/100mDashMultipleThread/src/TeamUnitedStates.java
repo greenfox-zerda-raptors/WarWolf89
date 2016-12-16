@@ -5,7 +5,7 @@ public class TeamUnitedStates extends Sprinter {
 
     public TeamUnitedStates() {
         this.name = "USA";
-        this.sleepValue = 0;
+        this.sleepValue = 100;
     }
 
 }
