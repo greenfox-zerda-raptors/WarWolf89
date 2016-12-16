@@ -10,8 +10,7 @@ public class MainFrame extends JFrame {
     private JButton start, threadControl;
     private JLabel statusTrackerTeamOne;
     private JLabel statusTrackerTeamTwo;
-    private Toolkit tk = Toolkit.getDefaultToolkit();
-    Sprinter sprinter, sprinter2;
+    private Sprinter sprinter, sprinter2;
 
     public MainFrame() {
         createGUI();
@@ -23,7 +22,7 @@ public class MainFrame extends JFrame {
         this.setSize(new Dimension(600, 400));
         this.setLocationRelativeTo(null);
         this.setVisible(true);
-        setTitle("100m Hurdle");
+        setTitle("400m Hurdle");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 
@@ -31,10 +30,10 @@ public class MainFrame extends JFrame {
         mainPanel.setSize(new Dimension(600, 400));
         add(mainPanel, BorderLayout.CENTER);
 
-        statusTrackerTeamOne = new JLabel("Race status for team one");
+        statusTrackerTeamOne = new JLabel(String.format("Race status for team %s ", getName()));
         mainPanel.add(statusTrackerTeamOne);
 
-        statusTrackerTeamTwo = new JLabel("Race status for team two");
+        statusTrackerTeamTwo = new JLabel(String.format("Race status for team %s ", getName()));
         mainPanel.add(statusTrackerTeamTwo);
 
         JPanel buttonPanel = new JPanel();
@@ -50,7 +49,6 @@ public class MainFrame extends JFrame {
         start.addActionListener(e -> start());
         threadControl.addActionListener(e -> suspend());
 
-
     }
 
     private void start() {
@@ -61,7 +59,16 @@ public class MainFrame extends JFrame {
     }
 
     private void suspend() {
-        sprinter.cancelExecution();
-        sprinter2.cancelExecution();
+        if (!sprinter.getPaused()) {
+            sprinter.pauseExecution();
+        } else {
+            sprinter.resumeExecution();
+        }
+
+        if (!sprinter2.getPaused()) {
+            sprinter2.pauseExecution();
+        } else {
+            sprinter2.resumeExecution();
+        }
     }
 }

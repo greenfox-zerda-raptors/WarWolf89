@@ -9,41 +9,63 @@ public class Sprinter {
     String name;
     int sleepValue;
 
+
+    public boolean paused = false;
     private Integer distance;
     private static int numberOfRunnersWhoHaveFinished = 0;
     private JLabel statusLabel = new JLabel();
+    private int longWait = 10000;
 
 
     public Sprinter(JLabel label) {
         this.statusLabel = label;
-
     }
 
     public void startExecution() {
         worker.execute();
     }
 
-    public void cancelExecution() {
-        worker.cancel(true);
+    public synchronized void pauseExecution() {
+        paused = true;
+        this.notify();
+    }
 
+    public synchronized void resumeExecution() {
+        paused = false;
+        this.notify();
+    }
+
+    public boolean getPaused() {
+        return paused;
     }
 
     private SwingWorker<Void, Integer> worker = new SwingWorker<Void, Integer>() {
+
         @Override
         protected Void doInBackground() throws Exception {
             for (distance = 0; distance <= 400 && !isCancelled(); distance++) {
                 System.out.println(getStringForPrint());
+                if (paused) {
+                    try {
+                        synchronized (this) {
+                            while (getPaused()) {
+                                wait(100);
+                            }
+                        }
+                    } catch (InterruptedException ex) {
+                        System.out.println("");
+                    }
+                }
                 if (hasFinishedTheRace()) {
                     numberOfRunnersWhoHaveFinished++;
                     System.out.println(victoryMessagePrint());
                     break;
                 }
-                distance++;
                 publish(distance);
                 try {
                     Thread.sleep(sleepValue);
                 } catch (InterruptedException e) {
-
+                    System.out.println("");
                 }
             }
             return null;
@@ -60,6 +82,7 @@ public class Sprinter {
         public String getName() {
             return name;
         }
+
 
         public String getStringForPrint() {
             return String.format("Team %s has covered %d meters", getName(), distance);
