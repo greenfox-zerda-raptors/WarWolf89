@@ -12,11 +12,11 @@ import java.util.concurrent.atomic.AtomicLong;
 @RestController
 public class HelloRESTController {
 
-    private final AtomicLong counter = new AtomicLong();
+    static final AtomicLong counter = new AtomicLong();
 
     @RequestMapping(value = "/greeting")
     public Greeting greeting(@RequestParam String name) {
-        Greeting greeting = new Greeting(counter.incrementAndGet(), name);
+        Greeting greeting = new Greeting(counter.incrementAndGet(), String.format("Hello %s", name));
         return greeting;
 
     }
