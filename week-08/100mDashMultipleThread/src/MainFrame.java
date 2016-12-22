@@ -7,7 +7,7 @@ import java.awt.*;
 
 public class MainFrame extends JFrame {
 
-    private JButton start, threadControl;
+    private JButton threadControl;
     private JLabel statusTrackerTeamOne;
     private JLabel statusTrackerTeamTwo;
     private Sprinter sprinter, sprinter2;
@@ -39,10 +39,9 @@ public class MainFrame extends JFrame {
         JPanel buttonPanel = new JPanel();
         add(buttonPanel, BorderLayout.PAGE_END);
 
-        start = new JButton("Start the race");
+        JButton start;
         add(start = new JButton("Start the race"));
         buttonPanel.add(start);
-        threadControl = new JButton("Pause the race");
         add(threadControl = new JButton("Pause the race"));
         buttonPanel.add(threadControl);
 
@@ -59,19 +58,13 @@ public class MainFrame extends JFrame {
     }
 
     private void suspend() {
-        if (!sprinter.getPaused()) {
+        if (!sprinter.getPaused() && !sprinter2.getPaused()) {
             sprinter.pauseExecution();
-            threadControl.setText("Resume the race");
-        } else {
-            sprinter.resumeExecution();
-            threadControl.setText("Pause the race");
-        }
-
-        if (!sprinter2.getPaused()) {
             sprinter2.pauseExecution();
             threadControl.setText("Resume the race");
         } else {
             sprinter2.resumeExecution();
+            sprinter.resumeExecution();
             threadControl.setText("Pause the race");
         }
     }

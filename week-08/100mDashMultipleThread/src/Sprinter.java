@@ -13,7 +13,7 @@ public class Sprinter {
     private boolean paused = false;
     private Integer distance;
     private static int numberOfRunnersWhoHaveFinished = 0;
-    private JLabel statusLabel = new JLabel();
+    private JLabel statusLabel;
 
 
     public Sprinter(JLabel label) {
@@ -48,7 +48,7 @@ public class Sprinter {
                     try {
                         synchronized (this) {
                             while (getPaused()) {
-                                wait(100);
+                                wait(1);
                             }
                         }
                     } catch (InterruptedException ex) {
@@ -60,7 +60,7 @@ public class Sprinter {
                     System.out.println(victoryMessagePrint());
                     break;
                 }
-                publish(distance);
+                publish(distance + 1);
                 try {
                     Thread.sleep(sleepValue);
                 } catch (InterruptedException e) {
