@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+</head>
+<body>
+<form action="#" th:action="@{/add}" th:object="${meal}" method="post">
+    <div>
+        <label for="type">Type</label>
+        <input id="type" type="text" th:field="*{type}"/>
+    </div>
+    <div>
+        <label for="calorie">Calorie</label>
+        <input id="calorie" type="text" th:field="*{calorie}"/>
+    </div>
+    <div>
+        <input type="submit" value="Submit"/>
+    </div>
+</form>
+</body>
+</html>
