@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+</head>
+<body>
+<h1>Your posts will be added here</h1>
+<form action="#" th:action="@{/posts/addPage}" th:object="${post}" method="post">
+    <div>
+        <label for="content">Type</label>
+        <input id="content" type="text" th:field="*{content}"/>
+    </div>
+    <div>
+        <input type="submit" value="Submit"/>
+    </div>
+</form>
+</body>
+</html>
