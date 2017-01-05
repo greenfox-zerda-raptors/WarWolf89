@@ -44,6 +44,7 @@
                     <a href="javascript:{}" onclick="document.getElementById('frmlogout').submit(); return false;">Logout</a>
                 </form>
                 <a sec:authorize="!isAuthenticated()" th:href="@{/login}"> Login</a>
+                <a th:href="@{/signUp}">Sign up</a>
             </div>
         </div>
     </div>
