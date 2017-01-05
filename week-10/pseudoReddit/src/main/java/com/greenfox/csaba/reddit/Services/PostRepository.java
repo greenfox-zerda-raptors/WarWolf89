@@ -1,6 +1,6 @@
 package com.greenfox.csaba.reddit.Services;
 
-import com.greenfox.csaba.reddit.Post;
+import com.greenfox.csaba.reddit.domain.Post;
 import org.springframework.data.repository.CrudRepository;
 
 /**

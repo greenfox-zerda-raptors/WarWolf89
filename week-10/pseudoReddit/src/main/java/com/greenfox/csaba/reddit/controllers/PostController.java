@@ -1,7 +1,7 @@
 package com.greenfox.csaba.reddit.controllers;
 
-import com.greenfox.csaba.reddit.Post;
 import com.greenfox.csaba.reddit.Services.PostServices;
+import com.greenfox.csaba.reddit.domain.Post;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

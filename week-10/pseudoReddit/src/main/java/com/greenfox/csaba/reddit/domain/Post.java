@@ -1,4 +1,4 @@
-package com.greenfox.csaba.reddit;
+package com.greenfox.csaba.reddit.domain;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -16,11 +16,10 @@ public class Post {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    String content;
-    int score;
+    private String content;
+    private int score;
 
     public Post() {
-
     }
 
     public Post(String content, int score) {
