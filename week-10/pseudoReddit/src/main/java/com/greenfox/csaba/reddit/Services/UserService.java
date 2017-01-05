@@ -6,5 +6,5 @@ import org.springframework.stereotype.Service;
  * Created by almasics on 2017.01.05..
  */
 @Service
-public class AuthorService {
+public class UserService {
 }

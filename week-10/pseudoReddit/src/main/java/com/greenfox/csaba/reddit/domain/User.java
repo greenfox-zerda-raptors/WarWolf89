@@ -9,7 +9,7 @@ import javax.persistence.Id;
  * Created by almasics on 2017.01.05..
  */
 @Entity
-public class Author {
+public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
