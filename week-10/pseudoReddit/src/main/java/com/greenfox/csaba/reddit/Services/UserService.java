@@ -1,6 +1,7 @@
 package com.greenfox.csaba.reddit.Services;
 
 import com.greenfox.csaba.reddit.domain.User;
+import com.greenfox.csaba.reddit.domain.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,8 +26,8 @@ public class UserService {
         return userRepository.findOne(id);
     }
 
-    public User save(User user) {
-        return userRepository.save(user);
+    public User save(User User) {
+        return userRepository.save(User);
     }
 
 }

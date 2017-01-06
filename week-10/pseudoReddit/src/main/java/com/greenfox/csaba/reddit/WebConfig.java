@@ -1,4 +1,4 @@
-package com.greenfox.csaba.reddit.configs;
+package com.greenfox.csaba.reddit;
 
 /**
  * Created by almasics on 2017.01.05..

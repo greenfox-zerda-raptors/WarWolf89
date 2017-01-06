@@ -9,7 +9,7 @@
 <form action="#" th:action="@{/posts/addPage}" th:object="${post}" method="post">
     <div>
         <label for="content">Type</label>
-        <input id="content" type="text" th:field="*{content}"/>
+        <input userId="content" type="text" th:field="*{content}"/>
     </div>
     <div>
         <input type="submit" value="Submit"/>

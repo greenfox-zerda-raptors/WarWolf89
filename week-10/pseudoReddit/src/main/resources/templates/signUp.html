@@ -5,22 +5,22 @@
     <title>Registration</title>
 </head>
 <body>
-<form action="#" th:action="@{/signUp}" th:object="${user}" method="post">
+<form action="#" th:action="@{/signUp}" th:object="${User}" method="post">
     <div>
         <label for="firstName">First name</label>
-        <input id="firstName" type="text" th:field="*{firstName}"/>
+        <input userId="firstName" type="text" th:field="*{firstName}"/>
     </div>
     <div>
         <label for="lastName">Last name</label>
-        <input id="lastName" type="text" th:field="*{lastName}"/>
+        <input userId="lastName" type="text" th:field="*{lastName}"/>
     </div>
     <div>
         <label for="username">Username</label>
-        <input id="username" type="text" th:field="*{userName}"/>
+        <input userId="username" type="text" th:field="*{userName}"/>
     </div>
     <div>
         <label for="password">Password</label>
-        <input id="password" type="text" th:field="*{password}"/>
+        <input userId="password" type="text" th:field="*{password}"/>
     </div>
     <div>
         <input type="submit" value="Submit"/>

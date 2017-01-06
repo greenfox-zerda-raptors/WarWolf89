@@ -19,7 +19,6 @@ public class UserController {
 
     @Autowired
     public UserController(UserService userService) {
-        super();
         this.userService = userService;
     }
 
@@ -30,8 +29,8 @@ public class UserController {
     }
 
     @RequestMapping(value = "/signUp", method = RequestMethod.POST)
-    public String addUser(@ModelAttribute User user) {
-        userService.save(user);
+    public String addUser(@ModelAttribute User User) {
+        userService.save(User);
         return "redirect:/";
     }
 }

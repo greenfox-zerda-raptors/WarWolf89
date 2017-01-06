@@ -1,40 +1,45 @@
 package com.greenfox.csaba.reddit.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.io.Serializable;
 
 /**
  * Created by almasics on 2017.01.05..
  */
 @Entity
-public class User {
+@Table(name = "user")
+public class User implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    @Column(name = "userid")
+    private Long userId;
     private String firstName;
     private String lastName;
+    @Column(name = "username")
     private String userName;
+    @Column(name = "password")
     private String password;
+    @Column(name = "enabled")
+    private int enabled;
 
     public User() {
 
     }
 
-    public User(String firstName, String lastName, String userName, String password) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.userName = userName;
-        this.password = password;
+    public User(User User) {
+        this.firstName = User.firstName;
+        this.lastName = User.lastName;
+        this.userName = User.userName;
+        this.password = User.password;
+        this.enabled = User.enabled;
     }
 
-    public Long getId() {
-        return id;
+    public Long getUserId() {
+        return userId;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setUserId(Long userId) {
+        this.userId = userId;
     }
 
     public String getFirstName() {
@@ -67,5 +72,13 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public int getEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(int enabled) {
+        this.enabled = enabled;
     }
 }
