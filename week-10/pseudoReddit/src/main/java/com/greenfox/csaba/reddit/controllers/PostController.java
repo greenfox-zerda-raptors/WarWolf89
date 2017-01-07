@@ -32,11 +32,11 @@ public class PostController {
 
     @RequestMapping(value = "/posts/addPage", method = RequestMethod.GET)
     public String newPost(Model model) {
-        model.addAttribute(new Post());
-        return "/addPage";
+        model.addAttribute("post", new Post());
+        return "addPage";
     }
 
-    @RequestMapping(value = "/posts/addPage", method = RequestMethod.POST)
+    @RequestMapping(value = "/posts", method = RequestMethod.POST)
     public String savePost(@ModelAttribute Post post) {
         postService.save(post);
         return "redirect:/posts";

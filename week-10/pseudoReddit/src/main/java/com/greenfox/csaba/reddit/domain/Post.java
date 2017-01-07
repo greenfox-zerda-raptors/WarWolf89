@@ -1,9 +1,6 @@
 package com.greenfox.csaba.reddit.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 /**
  * Created by almasics on 2017.01.04..
@@ -18,6 +15,10 @@ public class Post {
 
     private String content;
     private int score;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id", nullable = false)
+    private User user;
 
     public Post() {
     }
@@ -49,5 +50,13 @@ public class Post {
 
     public void setScore(int score) {
         this.score = score;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }

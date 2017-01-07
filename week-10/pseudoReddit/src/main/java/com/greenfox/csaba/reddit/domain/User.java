@@ -2,6 +2,8 @@ package com.greenfox.csaba.reddit.domain;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by almasics on 2017.01.05..
@@ -21,6 +23,9 @@ public class User implements Serializable {
     private String password;
     @Column(name = "enabled")
     private int enabled;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
+    List<Post> posts = new ArrayList<>();
 
     public User() {
 
@@ -80,5 +85,13 @@ public class User implements Serializable {
 
     public void setEnabled(int enabled) {
         this.enabled = enabled;
+    }
+
+    public List<Post> getPosts() {
+        return posts;
+    }
+
+    public void setPosts(List<Post> posts) {
+        this.posts = posts;
     }
 }

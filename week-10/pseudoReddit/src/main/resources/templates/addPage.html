@@ -6,10 +6,10 @@
 </head>
 <body>
 <h1>Your posts will be added here</h1>
-<form action="#" th:action="@{/posts/addPage}" th:object="${post}" method="post">
+<form action="#" th:action="@{/posts}" th:object="${post}" method="post">
     <div>
         <label for="content">Type</label>
-        <input userId="content" type="text" th:field="*{content}"/>
+        <input id="content" type="text" th:field="*{content}"/>
     </div>
     <div>
         <input type="submit" value="Submit"/>
