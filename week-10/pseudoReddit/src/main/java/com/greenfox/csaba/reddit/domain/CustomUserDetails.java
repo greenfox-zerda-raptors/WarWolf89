@@ -1,4 +1,4 @@
-package com.greenfox.csaba.reddit.configs;
+package com.greenfox.csaba.reddit.domain;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.AuthorityUtils;

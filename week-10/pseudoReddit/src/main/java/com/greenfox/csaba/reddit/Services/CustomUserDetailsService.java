@@ -1,5 +1,6 @@
-package com.greenfox.csaba.reddit.configs;
+package com.greenfox.csaba.reddit.Services;
 
+import com.greenfox.csaba.reddit.domain.CustomUserDetails;
 import com.greenfox.csaba.reddit.domain.User;
 import com.greenfox.csaba.reddit.domain.UserRepository;
 import com.greenfox.csaba.reddit.domain.UserRoleRepository;
