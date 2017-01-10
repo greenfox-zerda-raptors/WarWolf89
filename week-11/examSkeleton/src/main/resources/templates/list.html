@@ -10,6 +10,7 @@
     <thead>
     <tr>
         <td>data</td>
+        <td>created on</td>
     </tr>
     </thead>
     <tbody>
@@ -18,6 +19,7 @@
     </tr>
     <tr th:each="dummydata : ${dataList}">
         <td th:text="${dummydata.data}"></td>
+        <td th:text="${dummydata.createdOn} ? ${#dates.format(dummydata.createdOn,'YYYY/MM/dd HH:mm')}"></td>
     </tr>
     </tbody>
 </table>
