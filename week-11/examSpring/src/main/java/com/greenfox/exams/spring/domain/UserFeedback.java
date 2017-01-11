@@ -18,6 +18,7 @@ public class UserFeedback {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+
     @NotNull
     @Size(min = 2, max = 80)
     private String textFeedback;

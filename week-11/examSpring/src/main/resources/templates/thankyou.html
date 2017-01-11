@@ -1,10 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8"/>
     <title>Title</title>
 </head>
 <body>
-<h1>Thank You</h1>
+<h1>Projects</h1>
+<table class="table table-bordered table-striped">
+    <thead>
+    <tr>
+        <td>Early access of Greenfox Academy Zerda Raptor Projects with tech tags</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:if="${projects.empty}">
+        <td colspan="2">No posts</td>
+    </tr>
+    <tr th:each="project : ${projects}">
+        <td th:text="${project.name}">1</td>
+        <td th:text="${project.type}">1</td>
+    </tr>
+    </tbody>
+</table>
 </body>
 </html>
