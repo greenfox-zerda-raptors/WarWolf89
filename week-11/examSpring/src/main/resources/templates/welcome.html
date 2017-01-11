@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+</head>
+<body>
+<form action="#" th:action="@{/}" th:object="${userFeedback}" method="post" id="feedback">
+    <div>
+        <label for="textFeedback">Please give us feedback</label>
+    </div>
+    <div>
+        <textarea rows="20" cols="80" th:field="*{textFeedback}" form="feedback"></textarea>
+        <div th:if="${userFeedback.textFeedback} ? ${#fields.hasErrors('textFeedback')}" th:errors="*{textFeedback}">
+            textFeedback error
+        </div>
+    </div>
+    <div>
+        <label for="email">Please enter your email adress</label>
+        <input userId="email" type="email" th:field="*{email}"/>
+        <div th:if="${userFeedback.email} ? ${#fields.hasErrors('email')}" th:errors="*{email}">
+            email error
+        </div>
+    </div>
+    <div>
+        <label for="rating">Rate GreenFox</label>
+        <input userId="rating" type="number" th:field="*{rating}"/>
+        <div th:if="${userFeedback.rating} ? ${#fields.hasErrors('rating')}" th:errors="*{rating}">rating error
+        </div>
+    </div>
+    <div>
+        <input type="submit" value="Submit"/>
+    </div>
+</form>
+</body>
+</html>
