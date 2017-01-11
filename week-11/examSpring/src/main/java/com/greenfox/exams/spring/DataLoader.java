@@ -1,5 +1,6 @@
-package com.greenfox.exams.spring.domain;
+package com.greenfox.exams.spring;
 
+import com.greenfox.exams.spring.domain.Project;
 import com.greenfox.exams.spring.repositories.ProjectRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
