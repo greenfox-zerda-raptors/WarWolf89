@@ -6,10 +6,12 @@
 </head>
 <body>
 <h1>Your posts will be added here</h1>
-<form action="#" th:action="@{/posts}" th:object="${post}" method="post">
+<form action="#" th:action="@{/posts}" th:object="${post}" method="post" id="post">
     <div>
-        <label for="content">Type</label>
-        <input id="content" type="text" th:field="*{content}"/>
+        <label for="post">Content</label>
+    </div>
+    <textarea rows="20" cols="80" th:field="*{content}" form="post"></textarea>
+    <div th:if="${post.content} ? ${#fields.hasErrors('content')}" th:errors="*{content}">content error
     </div>
     <div>
         <input type="submit" value="Submit"/>

@@ -5,10 +5,12 @@ import com.greenfox.csaba.reddit.domain.Post;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.PostMapping;
+
+import javax.validation.Valid;
 
 /**
  * Created by almasics on 2017.01.04..
@@ -24,25 +26,29 @@ public class PostController {
         this.postService = postService;
     }
 
-    @RequestMapping(value = "/posts", method = RequestMethod.GET)
+    @GetMapping(value = "/posts")
     public String postList(Model model) {
         model.addAttribute("posts", postService.list());
         return "posts";
     }
 
-    @RequestMapping(value = "/posts/addPage", method = RequestMethod.GET)
+    @GetMapping(value = "/posts/addPage")
     public String newPost(Model model) {
         model.addAttribute("post", new Post());
         return "addPage";
     }
 
-    @RequestMapping(value = "/posts", method = RequestMethod.POST)
-    public String savePost(@ModelAttribute Post post) {
-        postService.save(post);
+    @PostMapping(value = "/posts")
+    public String savePost(@Valid Post post, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            return "addPage";
+        } else {
+            postService.save(post);
+        }
         return "redirect:/posts";
     }
 
-    @RequestMapping(value = "/posts/{id}/upVote")
+    @GetMapping(value = "/posts/{id}/upVote")
     public String upVotePost(@PathVariable Long id) {
         Post currentPost = postService.get(id);
         currentPost.setScore(currentPost.getScore() + 1);
@@ -50,7 +56,7 @@ public class PostController {
         return "redirect:/posts";
     }
 
-    @RequestMapping(value = "/posts/{id}/downVote")
+    @GetMapping(value = "/posts/{id}/downVote")
     public String downVotePost(@PathVariable Long id) {
         Post currentPost = postService.get(id);
         currentPost.setScore(currentPost.getScore() - 1);

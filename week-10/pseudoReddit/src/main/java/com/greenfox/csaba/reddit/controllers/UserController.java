@@ -5,9 +5,11 @@ import com.greenfox.csaba.reddit.domain.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+
+import javax.validation.Valid;
 
 /**
  * Created by almasics on 2017.01.05..
@@ -22,15 +24,19 @@ public class UserController {
         this.userService = userService;
     }
 
-    @RequestMapping(value = "/signUp", method = RequestMethod.GET)
+    @GetMapping(value = "/signUp")
     public String newUser(Model model) {
         model.addAttribute("user", new User());
         return "/signUp";
     }
 
-    @RequestMapping(value = "/signUp", method = RequestMethod.POST)
-    public String addUser(@ModelAttribute User User) {
-        userService.save(User);
+    @PostMapping(value = "/signUp")
+    public String addUser(@Valid User user, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            return "signUp";
+        } else {
+            userService.save(user);
+        }
         return "redirect:/";
     }
 }

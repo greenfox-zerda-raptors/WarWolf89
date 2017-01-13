@@ -1,6 +1,8 @@
 package com.greenfox.csaba.reddit.domain;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,15 +17,22 @@ public class User implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "userid")
     private Long userid;
+
     private String firstName;
     private String lastName;
+
+    @NotNull
     @Column(name = "username")
     private String userName;
+
+    @Size(min = 4, max = 8)
     @Column(name = "password")
     private String password;
+
     @Column(name = "enabled")
     private int enabled;
 
+    @Transient
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
     List<Post> posts = new ArrayList<>();
 
