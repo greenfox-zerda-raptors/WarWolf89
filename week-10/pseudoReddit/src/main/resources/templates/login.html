@@ -8,12 +8,12 @@
 <body>
 
 <div layout:fragment="content">
-    <form name="f" th:action="@{/login}" method="post" class="form-signin">
-        <h2 class="form-signin-heading">Please sign in</h2>
-        <div th:if="${param.error}" class="alert alert-danger">
+    <form name="f" th:action="@{/login}" method="post">
+        <h2>Please sign in</h2>
+        <div th:if="${param.error ne null}">
             Invalid username and password.
         </div>
-        <div th:if="${param.logout}" class="alert alert-success">
+        <div th:if="${param.logout ne null}">
             You have been logged out.
         </div>
         <label for="username" class="sr-only">Username</label>

@@ -1,5 +1,6 @@
-package com.greenfox.csaba.reddit.domain;
+package com.greenfox.csaba.reddit.repositories;
 
+import com.greenfox.csaba.reddit.domain.UserRole;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;

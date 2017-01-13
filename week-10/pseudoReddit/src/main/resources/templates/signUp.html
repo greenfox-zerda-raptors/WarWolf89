@@ -5,7 +5,7 @@
     <title>Registration</title>
 </head>
 <body>
-<form action="#" th:action="@{/signUp}" th:object="${User}" method="post">
+<form action="#" th:action="@{/signUp}" th:object="${user}" method="post">
     <div>
         <label for="firstName">First name</label>
         <input userid="firstName" type="text" th:field="*{firstName}"/>

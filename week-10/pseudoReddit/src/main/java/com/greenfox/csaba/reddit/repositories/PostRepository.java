@@ -1,5 +1,6 @@
-package com.greenfox.csaba.reddit.domain;
+package com.greenfox.csaba.reddit.repositories;
 
+import com.greenfox.csaba.reddit.domain.Post;
 import org.springframework.data.repository.CrudRepository;
 
 /**

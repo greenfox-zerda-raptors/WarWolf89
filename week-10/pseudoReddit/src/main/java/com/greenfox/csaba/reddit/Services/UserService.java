@@ -1,7 +1,7 @@
 package com.greenfox.csaba.reddit.Services;
 
 import com.greenfox.csaba.reddit.domain.User;
-import com.greenfox.csaba.reddit.domain.UserRepository;
+import com.greenfox.csaba.reddit.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

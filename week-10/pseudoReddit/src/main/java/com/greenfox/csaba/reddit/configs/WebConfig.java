@@ -1,4 +1,4 @@
-package com.greenfox.csaba.reddit;
+package com.greenfox.csaba.reddit.configs;
 
 /**
  * Created by almasics on 2017.01.05..
@@ -20,6 +20,6 @@ public class WebConfig extends WebMvcConfigurerAdapter {
 //        registry.addViewController("/posts/addPage").setViewName("addPage");
         registry.setOrder(Ordered.HIGHEST_PRECEDENCE);
     }
-    
+
 
 }

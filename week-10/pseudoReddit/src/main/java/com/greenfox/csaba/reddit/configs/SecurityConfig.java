@@ -1,4 +1,4 @@
-package com.greenfox.csaba.reddit;
+package com.greenfox.csaba.reddit.configs;
 
 import com.greenfox.csaba.reddit.Services.CustomUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,7 +32,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers("/admin/**").access("hasRole('ADMIN')")
                 .anyRequest().permitAll()
                 .and()
                 .formLogin()
