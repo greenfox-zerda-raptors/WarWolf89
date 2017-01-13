@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
+@RequestMapping(value = "/admin")
 @Secured({"ROLE_ADMIN"})
 public class AdminController {
 
@@ -19,13 +20,13 @@ public class AdminController {
         this.postService = postService;
     }
 
-    @RequestMapping("/admin/posts")
+    @RequestMapping("/posts")
     public String list(Model model) {
         model.addAttribute("posts", postService.list());
         return "admin/post/list";
     }
 
-    @RequestMapping("/admin/post/{id}")
+    @RequestMapping("/post/{id}")
     public String view(@PathVariable Long id, Model model) {
         model.addAttribute("post", postService.get(id));
         return "admin/post/view";

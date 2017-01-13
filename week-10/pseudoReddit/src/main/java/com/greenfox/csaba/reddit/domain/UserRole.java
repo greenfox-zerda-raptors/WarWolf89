@@ -12,8 +12,10 @@ public class UserRole {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "user_role_id")
     private Long userRoleId;
+
     @Column(name = "userid")
     private long userid;
+
     @Column(name = "role")
     private String userRole;
 

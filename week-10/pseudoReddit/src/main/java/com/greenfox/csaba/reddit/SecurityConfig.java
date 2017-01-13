@@ -1,6 +1,6 @@
 package com.greenfox.csaba.reddit;
 
-import com.greenfox.csaba.reddit.configs.CustomUserDetailsService;
+import com.greenfox.csaba.reddit.Services.CustomUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
