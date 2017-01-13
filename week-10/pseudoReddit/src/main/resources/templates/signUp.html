@@ -8,19 +8,19 @@
 <form action="#" th:action="@{/signUp}" th:object="${User}" method="post">
     <div>
         <label for="firstName">First name</label>
-        <input userId="firstName" type="text" th:field="*{firstName}"/>
+        <input userid="firstName" type="text" th:field="*{firstName}"/>
     </div>
     <div>
         <label for="lastName">Last name</label>
-        <input userId="lastName" type="text" th:field="*{lastName}"/>
+        <input userid="lastName" type="text" th:field="*{lastName}"/>
     </div>
     <div>
         <label for="username">Username</label>
-        <input userId="username" type="text" th:field="*{userName}"/>
+        <input userid="username" type="text" th:field="*{userName}"/>
     </div>
     <div>
         <label for="password">Password</label>
-        <input userId="password" type="text" th:field="*{password}"/>
+        <input userid="password" type="text" th:field="*{password}"/>
     </div>
     <div>
         <input type="submit" value="Submit"/>

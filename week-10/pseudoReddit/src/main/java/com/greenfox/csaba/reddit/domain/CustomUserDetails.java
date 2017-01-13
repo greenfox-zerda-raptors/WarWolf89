@@ -12,6 +12,7 @@ import java.util.List;
  * Created by almasics on 2017.01.06..
  */
 public class CustomUserDetails extends com.greenfox.csaba.reddit.domain.User implements UserDetails {
+
     private List<String> userRoles;
 
     public CustomUserDetails(com.greenfox.csaba.reddit.domain.User user, List<String> userRoles) {

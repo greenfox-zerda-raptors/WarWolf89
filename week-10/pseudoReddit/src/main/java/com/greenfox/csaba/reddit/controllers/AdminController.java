@@ -23,13 +23,13 @@ public class AdminController {
     @RequestMapping("/posts")
     public String list(Model model) {
         model.addAttribute("posts", postService.list());
-        return "admin/post/list";
+        return "posts";
     }
 
     @RequestMapping("/post/{id}")
     public String view(@PathVariable Long id, Model model) {
         model.addAttribute("post", postService.get(id));
-        return "admin/post/view";
+        return "posts";
     }
 
 }
