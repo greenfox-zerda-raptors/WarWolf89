@@ -1,0 +1,34 @@
+language: java
+
+jdk:
+  - oraclejdk8
+
+before_install:
+ - chmod +x gradlew
+
+before_script:
+   - psql -c 'create database travis_ci_test;' -U postgres
+
+install:
+  - ./gradlew check
+  - ./gradlew assemble --stacktrace --debug
+
+branches:
+  only:
+    - master
+    - zoltan-writtingtests
+    - bncbodrogi
+
+
+before_cache:
+  - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
+  - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
+cache:
+  directories:
+    - $HOME/.gradle/caches/
+    - $HOME/.gradle/wrapper/
+
+deploy:
+  provider: heroku
+  api_key: 6f1c449a-756b-4bc4-89fe-3a15ba5a2b43
+  app:  pacific-bastion-75389
