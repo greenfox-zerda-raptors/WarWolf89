@@ -11,8 +11,8 @@ public class Main {
     private static String secondString;
 
     public static void main(String[] args) {
-        firstString = "nmsdfdsjfs";
-        secondString = "bcdefaaaaaaafgfdbnm";
+        firstString = "bcdefaaaaaaafgfdbnm";
+        secondString = "nmsdfdsjfs";
         System.out.println(checkString(firstString, secondString));
     }
 
@@ -24,18 +24,16 @@ public class Main {
         char[] second = secondString.toLowerCase().toCharArray();
         ArrayList<Character> returnArray = new ArrayList<>();
 
-        for (int i = 0; i < first.length; i++) {
-            for (int j = 0; j < second.length; j++) {
-                if (second[j] == first[i])
-                    returnArray.add(first[i]);
+        for (char aFirst : first) {
+            for (char aSecond : second) {
+                if (aSecond == aFirst)
+                    returnArray.add(aFirst);
             }
         }
         int end = returnArray.size();
         Set<Character> set = new HashSet<Character>();
 
-        for (int i = 0; i < end; i++) {
-            set.add(returnArray.get(i));
-        }
+        set.addAll(returnArray);
         return set;
     }
 }
