@@ -11,8 +11,8 @@ public class Main {
     private static String secondString;
 
     public static void main(String[] args) {
-        firstString = "bcdefaaaaaaafgfdbnm";
-        secondString = "nmsdfdsjfs";
+        firstString = "nmsdfdsjfs";
+        secondString = "dfjkgadskjgfas";
         System.out.println(checkString(firstString, secondString));
     }
 
@@ -30,8 +30,7 @@ public class Main {
                     returnArray.add(aFirst);
             }
         }
-        int end = returnArray.size();
-        Set<Character> set = new HashSet<Character>();
+        Set<Character> set = new HashSet<>();
 
         set.addAll(returnArray);
         return set;
