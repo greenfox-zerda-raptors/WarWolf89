@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Created by almasics on 2017.02.17..
@@ -15,7 +17,7 @@ public class Main {
     }
 
 
-    public static ArrayList<Character> checkString(String firstString, String secondString) {
+    public static Set<Character> checkString(String firstString, String secondString) {
 
 
         char[] first = firstString.toLowerCase().toCharArray();
@@ -28,6 +30,12 @@ public class Main {
                     returnArray.add(first[i]);
             }
         }
-        return returnArray;
+        int end = returnArray.size();
+        Set<Character> set = new HashSet<Character>();
+
+        for (int i = 0; i < end; i++) {
+            set.add(returnArray.get(i));
+        }
+        return set;
     }
 }
